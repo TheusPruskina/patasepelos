@@ -1,6 +1,6 @@
 ﻿namespace patasepelos
 {
-    partial class frmProCadastro
+    partial class Form9
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProCadastro));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form9));
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.lblDataVenc = new System.Windows.Forms.Label();
             this.lblCodBarras = new System.Windows.Forms.Label();
@@ -88,7 +88,7 @@
             this.pnlMenu.Location = new System.Drawing.Point(12, 12);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(1221, 655);
-            this.pnlMenu.TabIndex = 5;
+            this.pnlMenu.TabIndex = 6;
             // 
             // lblDataVenc
             // 
@@ -139,7 +139,7 @@
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.Color.Black;
-            this.lblStatus.Location = new System.Drawing.Point(580, 389);
+            this.lblStatus.Location = new System.Drawing.Point(580, 383);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(74, 19);
             this.lblStatus.TabIndex = 48;
@@ -150,7 +150,7 @@
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarca.ForeColor = System.Drawing.Color.Black;
-            this.lblMarca.Location = new System.Drawing.Point(580, 268);
+            this.lblMarca.Location = new System.Drawing.Point(580, 261);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(70, 19);
             this.lblMarca.TabIndex = 47;
@@ -176,7 +176,7 @@
             this.cmbStatus.Items.AddRange(new object[] {
             "ATIVO",
             "INATIVO"});
-            this.cmbStatus.Location = new System.Drawing.Point(584, 414);
+            this.cmbStatus.Location = new System.Drawing.Point(584, 410);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(354, 23);
             this.cmbStatus.TabIndex = 45;
@@ -193,18 +193,16 @@
             this.mtbCodBarras.Size = new System.Drawing.Size(214, 23);
             this.mtbCodBarras.TabIndex = 6;
             this.mtbCodBarras.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.mtbCodBarras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbCodBarras_KeyPress);
             // 
             // txtQuantidade
             // 
             this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtQuantidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQuantidade.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantidade.Location = new System.Drawing.Point(307, 414);
+            this.txtQuantidade.Location = new System.Drawing.Point(307, 417);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(232, 16);
             this.txtQuantidade.TabIndex = 3;
-            this.txtQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidade_KeyPress);
             // 
             // mtbData
             // 
@@ -219,7 +217,6 @@
             this.mtbData.TabIndex = 5;
             this.mtbData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbData.ValidatingType = typeof(System.DateTime);
-            this.mtbData.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbData_KeyPress);
             // 
             // cmbMarca
             // 
@@ -227,7 +224,7 @@
             this.cmbMarca.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.ItemHeight = 15;
-            this.cmbMarca.Location = new System.Drawing.Point(584, 290);
+            this.cmbMarca.Location = new System.Drawing.Point(584, 283);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(354, 23);
             this.cmbMarca.TabIndex = 2;
@@ -237,11 +234,10 @@
             this.txtValor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtValor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtValor.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.Location = new System.Drawing.Point(27, 414);
+            this.txtValor.Location = new System.Drawing.Point(27, 417);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(232, 16);
             this.txtValor.TabIndex = 2;
-            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
             // 
             // txtNome
             // 
@@ -252,7 +248,6 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(512, 16);
             this.txtNome.TabIndex = 1;
-            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // lblFoto
             // 
@@ -280,8 +275,6 @@
             this.btnAdicionar.Size = new System.Drawing.Size(50, 50);
             this.btnAdicionar.TabIndex = 4;
             this.btnAdicionar.UseVisualStyleBackColor = false;
-            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
-            this.btnAdicionar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnAdicionar_KeyPress);
             // 
             // pctFoto
             // 
@@ -314,6 +307,7 @@
             this.lblCadastro.Size = new System.Drawing.Size(186, 38);
             this.lblCadastro.TabIndex = 2;
             this.lblCadastro.Text = "CADASTRO";
+            this.lblCadastro.Click += new System.EventHandler(this.lblCadastro_Click);
             // 
             // pctLogo
             // 
@@ -341,7 +335,6 @@
             this.btnCadastrar.TabIndex = 7;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnLimpar
             // 
@@ -358,7 +351,6 @@
             this.btnLimpar.TabIndex = 30;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click_1);
             // 
             // button1
             // 
@@ -374,18 +366,16 @@
             this.button1.Size = new System.Drawing.Size(50, 50);
             this.button1.TabIndex = 26;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // frmProCadastro
+            // Form9
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1245, 679);
             this.Controls.Add(this.pnlMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmProCadastro";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form8";
+            this.Name = "Form9";
+            this.Text = "Form9";
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctFoto)).EndInit();
@@ -399,28 +389,28 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlMenu;
-        private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Panel pnlTopo;
-        private System.Windows.Forms.Label lblCadastro;
-        private System.Windows.Forms.PictureBox pctLogo;
-        private System.Windows.Forms.PictureBox pctFoto;
-        private System.Windows.Forms.Button btnAdicionar;
-        private System.Windows.Forms.Label lblFoto;
-        private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtValor;
-        private System.Windows.Forms.MaskedTextBox mtbData;
-        private System.Windows.Forms.ComboBox cmbMarca;
-        private System.Windows.Forms.TextBox txtQuantidade;
-        private System.Windows.Forms.MaskedTextBox mtbCodBarras;
-        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.Label lblDataVenc;
+        private System.Windows.Forms.Label lblCodBarras;
         private System.Windows.Forms.Label lblValor;
         private System.Windows.Forms.Label lblQuantidade;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.Label lblDataVenc;
-        private System.Windows.Forms.Label lblCodBarras;
+        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.MaskedTextBox mtbCodBarras;
+        private System.Windows.Forms.TextBox txtQuantidade;
+        private System.Windows.Forms.MaskedTextBox mtbData;
+        private System.Windows.Forms.ComboBox cmbMarca;
+        private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Label lblFoto;
+        private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.PictureBox pctFoto;
+        private System.Windows.Forms.Panel pnlTopo;
+        private System.Windows.Forms.Label lblCadastro;
+        private System.Windows.Forms.PictureBox pctLogo;
+        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button button1;
     }
 }

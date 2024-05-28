@@ -23,6 +23,7 @@ namespace patasepelos
         {
             InitializeComponent();
             CarregarCmbMarca();
+            CarregarCmbProduto();
         }
 
         /*Validação ftp*/
@@ -52,7 +53,7 @@ namespace patasepelos
             }
             catch
             {
-                byte[] imageToByte = ftpProduto.DownloadData("ftp://127.0.0.1/admin/img/cliente/semimagem.png");
+                byte[] imageToByte = ftpProduto.DownloadData("ftp://127.0.0.1/admin/img/produtos/semimagem.png");
                 return imageToByte;
             }
         }
@@ -108,9 +109,6 @@ namespace patasepelos
 
         //INICIO DOS METODOSS
 
-
-        // TEM QUE POR A BUCETA DOOOOOOOOOO CMB NN SEI OQ QUE O PROF TE MOSTROU PRA COISAR CERTO O CODIGO DO CMB
-
         private void CarregarCmbProduto()
         {
             try
@@ -123,7 +121,7 @@ namespace patasepelos
                 da.Fill(dt);
                 cmbMarca.DataSource = dt;
                 cmbMarca.DisplayMember = "nomeMarca";
-                cmbMarca.ValueMember = "Marca";
+                cmbMarca.ValueMember = "codMarca";
                 banco.Desconectar();
             }
             catch (Exception erro)
@@ -204,7 +202,7 @@ namespace patasepelos
             try
             {
                 banco.Conectar();
-                string alterar = "update tbl_produto set nomeProduto = @nome, codmarca = @marca, valorProduto = @valor, dataValProduto = @dataval, qtdeProduto = @qtde, barrasProduto = @barras, statusProduto = @status, fotoProduto = @foto where idProduto = @id;";
+                string alterar = "update tbl_produto set nomeProduto = @nome, codmarca = @marca,  valorProduto = @valor, dataValProduto = @dataval, qtdeProduto = @qtde, barrasProduto = @barras, statusProduto = @status, fotoProduto = @foto where idProduto = @id;";
                 MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
                 //parametros
                 cmd.Parameters.AddWithValue("@nome", Variaveis.nomeProduto);
@@ -231,59 +229,7 @@ namespace patasepelos
 
 
 
-        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                txtValor.Enabled = true;
-                txtValor.Focus();
-            }
-        }
 
-        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                txtQuantidade.Enabled = true;
-                txtQuantidade.Focus();
-            }
-        }
-
-        private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                btnAdicionar.Enabled = true;
-                btnAdicionar.Focus();
-            }
-        }
-            
-        private void btnAdicionar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                mtbData.Enabled = true;
-                mtbData.Focus();
-            }
-        }
-
-        private void mtbData_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                mtbData.Enabled = true;
-                mtbData.Focus();
-            }
-        }
-
-        private void mtbCodBarras_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                btnCadastrar.Enabled = true;
-                btnCadastrar.Focus();
-            }
-        }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -335,6 +281,12 @@ namespace patasepelos
             }
             else
             {
+                Variaveis.nomeProduto = txtNome.Text;
+                Variaveis.codMarca = cmbMarca.Text;
+                Variaveis.valorProduto = txtValor.Text;
+                Variaveis.qtdeProduto = txtQuantidade.Text;
+                Variaveis.statusProduto = cmbStatus.Text;
+
                 if (Variaveis.funcao == "CADASTRAR")
                 {
                     InserirProduto();
@@ -348,8 +300,23 @@ namespace patasepelos
                         AlterarFotoProduto();
                     }
                 }
+                MessageBox.Show("Cadastrar");
             }
         }
+
+        private void frmCadCadastro_Load(object sender, EventArgs e)
+        {
+            if (Variaveis.funcao == "CADASTRAR")
+            {
+                lblCadastro.Text = "CADASTRAR";
+            }
+            else if (Variaveis.funcao == "ALTERAR")
+            {
+                lblCadastro.Text = "ALTERAR";
+                //CarregarDadosCliente();
+            }
+        }
+
 
         private void btnLimpar_Click_1(object sender, EventArgs e)
         {
@@ -383,7 +350,7 @@ namespace patasepelos
 
                     DialogResult result = ofdFoto.ShowDialog();
                     pctFoto.Image = Image.FromFile(ofdFoto.FileName);
-                    Variaveis.fotoCliente = "produto/" + Regex.Replace(txtNome.Text, @"\s", "").ToLower() + ".png";
+                    Variaveis.fotoProduto = "produto/" + Regex.Replace(txtNome.Text, @"\s", "").ToLower() + ".png";
 
                     if (result == DialogResult.OK)
                     {
@@ -410,6 +377,69 @@ namespace patasepelos
                     btnCadastrar.Focus();
                 }
             }
+        }
+
+
+
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtValor.Enabled = true;
+                txtValor.Focus();
+            }
+        }
+
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtQuantidade.Enabled = true;
+                txtQuantidade.Focus();
+            }
+        }
+
+        private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnAdicionar.Enabled = true;
+                btnAdicionar.Focus();
+            }
+        }
+
+        private void btnAdicionar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                mtbData.Enabled = true;
+                mtbData.Focus();
+            }
+        }
+
+        private void mtbData_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                mtbData.Enabled = true;
+                mtbData.Focus();
+            }
+        }
+
+        private void mtbCodBarras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnCadastrar.Enabled = true;
+                btnCadastrar.Focus();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new frmProduto().Show();
+            Close();
         }
     }
 }

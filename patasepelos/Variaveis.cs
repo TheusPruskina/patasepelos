@@ -34,7 +34,7 @@ namespace patasepelos
         public static DateTime dataValProduto;
 
         //Marca
-        public static int codMarca;
+        public static string codMarca;
 
 
     }
