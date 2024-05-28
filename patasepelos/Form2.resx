@@ -121,7 +121,7 @@
   <data name="btnExcluir.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAN0AAAAvCAYAAABnns8IAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAAuBJREFUeF7t3V1rE0EUxvH9uuJLFbRCNba2SkgURapgldJqBdHihdBeeSHVG0VR
+        DAAACwwBP0AiyAAAAuBJREFUeF7t3V1rE0EUxvH9uuJLFbRCNba2SkgURapgldJqBdHihdBeeSHVG0VR
         LOjXGXdShpwcz0ySze7x7X/xY3fOmZ1NSh9mS0pbXTn1JEgratwWa92m9+rqNUryHvFc37P0GnI9a41E
         9vW8nHmuk71Z15+XXtfjnlK8h3XP3L2bvqYm68prqqun90Jv5FnonTHk6jnzzre0sUaX/vTX11TpfTXt
         LeJf+jrH91LnLOatWj37PFw/9yKsL70M6+f3AXRhaT+s1TmLeatuXHgV+hdfh8GlgzC4fDhhKI6aniPH
@@ -803,4 +803,7 @@
         //b/A5XZvSw3pBUnAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

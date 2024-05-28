@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnAlterar = new System.Windows.Forms.Button();
             this.pnlHora = new System.Windows.Forms.Panel();
             this.lblHora = new System.Windows.Forms.Label();
             this.btnCliente = new System.Windows.Forms.Button();
@@ -43,6 +47,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblProduto = new System.Windows.Forms.Label();
             this.txtProduto = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnProduto = new System.Windows.Forms.Button();
             this.btnServico = new System.Windows.Forms.Button();
             this.btnPet = new System.Windows.Forms.Button();
@@ -53,18 +59,15 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.pnlData = new System.Windows.Forms.Panel();
             this.lblData = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel7.SuspendLayout();
             this.pnlHora.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlTopo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.pnlData.SuspendLayout();
@@ -91,6 +94,7 @@
             this.pnlMenu.Controls.Add(this.btnFuncionario);
             this.pnlMenu.Controls.Add(this.pnlTopo);
             this.pnlMenu.Controls.Add(this.pnlData);
+            this.pnlMenu.Controls.Add(this.btnSair);
             this.pnlMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.pnlMenu.Location = new System.Drawing.Point(12, 12);
@@ -99,31 +103,53 @@
             this.pnlMenu.TabIndex = 2;
             this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // dataGridView2
+            // panel11
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.Silver;
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(22, 374);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(449, 259);
-            this.dataGridView2.TabIndex = 13;
+            this.panel11.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
+            this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel11.Location = new System.Drawing.Point(972, 208);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(40, 40);
+            this.panel11.TabIndex = 25;
             // 
-            // dataGridView1
+            // panel8
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Silver;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(752, 374);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(449, 259);
-            this.dataGridView1.TabIndex = 10;
+            this.panel8.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
+            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel8.Location = new System.Drawing.Point(717, 208);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(40, 40);
+            this.panel8.TabIndex = 25;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExcluir.BackgroundImage")));
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcluir.FlatAppearance.BorderSize = 0;
+            this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluir.Location = new System.Drawing.Point(501, 569);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(221, 41);
+            this.btnExcluir.TabIndex = 1;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            // 
+            // panel10
+            // 
+            this.panel10.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel10.Location = new System.Drawing.Point(462, 208);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(40, 40);
+            this.panel10.TabIndex = 24;
             // 
             // panel9
             // 
             this.panel9.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
             this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel9.Location = new System.Drawing.Point(207, 184);
+            this.panel9.Location = new System.Drawing.Point(207, 208);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(40, 40);
             this.panel9.TabIndex = 23;
@@ -138,6 +164,21 @@
             this.panel7.TabIndex = 21;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
+            // btnAlterar
+            // 
+            this.btnAlterar.BackgroundImage = global::patasepelos.Properties.Resources.alterar;
+            this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlterar.FlatAppearance.BorderSize = 0;
+            this.btnAlterar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            this.btnAlterar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlterar.Location = new System.Drawing.Point(0, 0);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(221, 41);
+            this.btnAlterar.TabIndex = 0;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            // 
             // pnlHora
             // 
             this.pnlHora.BackgroundImage = global::patasepelos.Properties.Resources.hora;
@@ -149,14 +190,15 @@
             // 
             // lblHora
             // 
-            this.lblHora.AutoSize = true;
             this.lblHora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
             this.lblHora.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.Location = new System.Drawing.Point(79, 13);
+            this.lblHora.Location = new System.Drawing.Point(8, 12);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(66, 25);
+            this.lblHora.Size = new System.Drawing.Size(210, 25);
             this.lblHora.TabIndex = 17;
             this.lblHora.Text = "00:00";
+            this.lblHora.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblHora.Click += new System.EventHandler(this.lblHora_Click);
             // 
             // btnCliente
             // 
@@ -168,11 +210,12 @@
             this.btnCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.btnCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCliente.Location = new System.Drawing.Point(532, 129);
+            this.btnCliente.Location = new System.Drawing.Point(532, 153);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(155, 155);
             this.btnCliente.TabIndex = 12;
             this.btnCliente.UseVisualStyleBackColor = false;
+            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // panel4
             // 
@@ -238,6 +281,26 @@
             this.txtProduto.Size = new System.Drawing.Size(327, 26);
             this.txtProduto.TabIndex = 14;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.Silver;
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(22, 374);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(449, 259);
+            this.dataGridView2.TabIndex = 13;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Silver;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(752, 374);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(449, 259);
+            this.dataGridView1.TabIndex = 10;
+            // 
             // btnProduto
             // 
             this.btnProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
@@ -252,12 +315,13 @@
             this.btnProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.btnProduto.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnProduto.Location = new System.Drawing.Point(22, 129);
+            this.btnProduto.Location = new System.Drawing.Point(22, 153);
             this.btnProduto.Name = "btnProduto";
             this.btnProduto.Size = new System.Drawing.Size(155, 155);
             this.btnProduto.TabIndex = 8;
             this.btnProduto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProduto.UseVisualStyleBackColor = false;
+            this.btnProduto.Click += new System.EventHandler(this.btnProduto_Click);
             // 
             // btnServico
             // 
@@ -272,12 +336,13 @@
             this.btnServico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServico.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.btnServico.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnServico.Location = new System.Drawing.Point(787, 129);
+            this.btnServico.Location = new System.Drawing.Point(787, 153);
             this.btnServico.Name = "btnServico";
             this.btnServico.Size = new System.Drawing.Size(155, 155);
             this.btnServico.TabIndex = 7;
             this.btnServico.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnServico.UseVisualStyleBackColor = false;
+            this.btnServico.Click += new System.EventHandler(this.btnServico_Click);
             // 
             // btnPet
             // 
@@ -292,12 +357,13 @@
             this.btnPet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.btnPet.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPet.Location = new System.Drawing.Point(1042, 129);
+            this.btnPet.Location = new System.Drawing.Point(1042, 153);
             this.btnPet.Name = "btnPet";
             this.btnPet.Size = new System.Drawing.Size(155, 155);
             this.btnPet.TabIndex = 4;
             this.btnPet.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPet.UseVisualStyleBackColor = false;
+            this.btnPet.Click += new System.EventHandler(this.btnPet_Click);
             // 
             // btnFuncionario
             // 
@@ -312,12 +378,13 @@
             this.btnFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFuncionario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnFuncionario.Location = new System.Drawing.Point(277, 129);
+            this.btnFuncionario.Location = new System.Drawing.Point(276, 154);
             this.btnFuncionario.Name = "btnFuncionario";
             this.btnFuncionario.Size = new System.Drawing.Size(155, 155);
             this.btnFuncionario.TabIndex = 2;
             this.btnFuncionario.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnFuncionario.UseVisualStyleBackColor = false;
+            this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);
             // 
             // pnlTopo
             // 
@@ -326,7 +393,7 @@
             this.pnlTopo.Controls.Add(this.pctLogo);
             this.pnlTopo.Controls.Add(this.lblCargo);
             this.pnlTopo.Controls.Add(this.lblUsuario);
-            this.pnlTopo.Location = new System.Drawing.Point(22, 19);
+            this.pnlTopo.Location = new System.Drawing.Point(22, 57);
             this.pnlTopo.Name = "pnlTopo";
             this.pnlTopo.Size = new System.Drawing.Size(1179, 82);
             this.pnlTopo.TabIndex = 11;
@@ -361,8 +428,8 @@
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(151, 23);
             this.lblUsuario.TabIndex = 2;
-            this.lblUsuario.Text = "Nerissa Jurina";
-            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUsuario.Text = "USUÁRIO";
+            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pnlData
             // 
@@ -375,71 +442,36 @@
             // 
             // lblData
             // 
-            this.lblData.AutoSize = true;
             this.lblData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
             this.lblData.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblData.Location = new System.Drawing.Point(50, 12);
+            this.lblData.Location = new System.Drawing.Point(3, 12);
             this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(124, 25);
+            this.lblData.Size = new System.Drawing.Size(215, 25);
             this.lblData.TabIndex = 17;
             this.lblData.Text = "00/00/0000";
+            this.lblData.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // panel10
+            // btnSair
             // 
-            this.panel10.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
-            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel10.Location = new System.Drawing.Point(462, 184);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(40, 40);
-            this.panel10.TabIndex = 24;
+            this.btnSair.BackgroundImage = global::patasepelos.Properties.Resources.x2;
+            this.btnSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSair.FlatAppearance.BorderSize = 0;
+            this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Location = new System.Drawing.Point(1168, 3);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(50, 50);
+            this.btnSair.TabIndex = 26;
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnAlterar
+            // timer1
             // 
-            this.btnAlterar.BackgroundImage = global::patasepelos.Properties.Resources.alterar;
-            this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAlterar.FlatAppearance.BorderSize = 0;
-            this.btnAlterar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnAlterar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlterar.Location = new System.Drawing.Point(0, 0);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(221, 41);
-            this.btnAlterar.TabIndex = 0;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExcluir.BackgroundImage")));
-            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExcluir.FlatAppearance.BorderSize = 0;
-            this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(501, 569);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(221, 41);
-            this.btnExcluir.TabIndex = 1;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            // 
-            // panel8
-            // 
-            this.panel8.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
-            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel8.Location = new System.Drawing.Point(717, 184);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(40, 40);
-            this.panel8.TabIndex = 25;
-            // 
-            // panel11
-            // 
-            this.panel11.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
-            this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel11.Location = new System.Drawing.Point(972, 184);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(40, 40);
-            this.panel11.TabIndex = 25;
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmMenu
             // 
@@ -453,20 +485,19 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "W S";
             this.TransparencyKey = System.Drawing.Color.OrangeRed;
+            this.Load += new System.EventHandler(this.frmMenu_Load);
             this.pnlMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel7.ResumeLayout(false);
             this.pnlHora.ResumeLayout(false);
-            this.pnlHora.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlTopo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.pnlData.ResumeLayout(false);
-            this.pnlData.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -502,5 +533,7 @@
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Timer timer1;
     }
 }
