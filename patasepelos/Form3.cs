@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,41 @@ namespace patasepelos
             InitializeComponent();
             CarregarProduto();
         }
+
+        //metodos para fotos ftp
+
+        /*Validação ftp*/
+        private bool ValidarFTP()
+        {
+            if (string.IsNullOrEmpty(Variaveis.enderecoServidorFtp) || string.IsNullOrEmpty(Variaveis.usuarioFtp) || string.IsNullOrEmpty(Variaveis.senhaFtp))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+        //CONVERTER A IMAGEM EM bYTE
+
+        public byte[] GetImgToByte(string caminhoArquivoFtp)
+        {
+            WebClient ftpProduto = new WebClient();
+            ftpProduto.Credentials = new NetworkCredential(Variaveis.usuarioFtp, Variaveis.senhaFtp);
+            try
+            {
+                byte[] imageToByte = ftpProduto.DownloadData(caminhoArquivoFtp);
+                return imageToByte;
+            }
+            catch
+            {
+                byte[] imageToByte = ftpProduto.DownloadData("ftp://127.0.0.1/admin/img/Produto/semimagem.png");
+                return imageToByte;
+            }
+        }
+
 
         //INICIO DOS METODOS 
 
@@ -57,10 +93,10 @@ namespace patasepelos
             try
             {
                 banco.Conectar();
-                string alterar = "update tbl_produto set statusProduto = 'DESATIVADO' where idProduto = @codigo;";
+                string alterar = "update tbl_produto set statusProduto = 'DESATIVADO' where idProduto = @id;";
                 MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
                 //parametros
-                cmd.Parameters.AddWithValue("@id", Variaveis.idCliente);
+                cmd.Parameters.AddWithValue("@id", Variaveis.idProduto);
                 //fim parametros
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Produto desativado com sucesso", "EXCLUIR PRODUTO");
@@ -134,21 +170,20 @@ namespace patasepelos
             }
         }
         //FIM DOS METODOS   
-        private void button1_Click(object sender, EventArgs e)
+
+
+        private void btnFechar_Click(object sender, EventArgs e)
         {
             new frmMenu().Show();
             Close();
-        }
-
-        private void lblServico_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void frmProduto_Load(object sender, EventArgs e)
         {
             dgvProduto.ClearSelection();
         }
+
+
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -188,7 +223,7 @@ namespace patasepelos
 
         private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbStatus.Text == "TODES")
+            if (cmbStatus.Text == "TODOS")
             {
                 CarregarProduto();
             }
@@ -244,11 +279,31 @@ namespace patasepelos
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnAlterar_Click(object sender, EventArgs e)
         {
-            Variaveis.funcao = "CADASTRAR";
+            if (Variaveis.linhaSelecionada >= 0)
+            {
+                Variaveis.funcao = "Alterar";
+                new frmProCadastro().Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("Para alterar selecione um produto da lista");
+            }
+        }
+
+        private void lblCadastrar_Click(object sender, EventArgs e)
+        {
+            Variaveis.funcao = "Cadastrar";
             new frmProCadastro().Show();
             Hide();
+        }
+
+        private void btnFechar_Click_1(object sender, EventArgs e)
+        {
+            new frmMenu().Show();
+            Close();
         }
     }
 }

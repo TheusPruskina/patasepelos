@@ -34,13 +34,11 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.pnlHora = new System.Windows.Forms.Panel();
             this.lblHora = new System.Windows.Forms.Label();
-            this.btnCliente = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblServico = new System.Windows.Forms.Label();
             this.txtServico = new System.Windows.Forms.TextBox();
@@ -51,7 +49,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnProduto = new System.Windows.Forms.Button();
             this.btnServico = new System.Windows.Forms.Button();
-            this.btnPet = new System.Windows.Forms.Button();
             this.btnFuncionario = new System.Windows.Forms.Button();
             this.pnlTopo = new System.Windows.Forms.Panel();
             this.pctLogo = new System.Windows.Forms.PictureBox();
@@ -61,6 +58,7 @@
             this.lblData = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             this.panel7.SuspendLayout();
             this.pnlHora.SuspendLayout();
@@ -76,21 +74,19 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            this.pnlMenu.Controls.Add(this.panel1);
             this.pnlMenu.Controls.Add(this.panel11);
             this.pnlMenu.Controls.Add(this.panel8);
             this.pnlMenu.Controls.Add(this.btnExcluir);
-            this.pnlMenu.Controls.Add(this.panel10);
             this.pnlMenu.Controls.Add(this.panel9);
             this.pnlMenu.Controls.Add(this.panel7);
             this.pnlMenu.Controls.Add(this.pnlHora);
-            this.pnlMenu.Controls.Add(this.btnCliente);
             this.pnlMenu.Controls.Add(this.panel4);
             this.pnlMenu.Controls.Add(this.panel3);
             this.pnlMenu.Controls.Add(this.dataGridView2);
             this.pnlMenu.Controls.Add(this.dataGridView1);
             this.pnlMenu.Controls.Add(this.btnProduto);
             this.pnlMenu.Controls.Add(this.btnServico);
-            this.pnlMenu.Controls.Add(this.btnPet);
             this.pnlMenu.Controls.Add(this.btnFuncionario);
             this.pnlMenu.Controls.Add(this.pnlTopo);
             this.pnlMenu.Controls.Add(this.pnlData);
@@ -107,7 +103,7 @@
             // 
             this.panel11.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
             this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel11.Location = new System.Drawing.Point(972, 208);
+            this.panel11.Location = new System.Drawing.Point(972, 210);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(40, 40);
             this.panel11.TabIndex = 25;
@@ -116,7 +112,7 @@
             // 
             this.panel8.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel8.Location = new System.Drawing.Point(717, 208);
+            this.panel8.Location = new System.Drawing.Point(709, 210);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(40, 40);
             this.panel8.TabIndex = 25;
@@ -136,20 +132,11 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             // 
-            // panel10
-            // 
-            this.panel10.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
-            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel10.Location = new System.Drawing.Point(462, 208);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(40, 40);
-            this.panel10.TabIndex = 24;
-            // 
             // panel9
             // 
             this.panel9.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
             this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel9.Location = new System.Drawing.Point(207, 208);
+            this.panel9.Location = new System.Drawing.Point(462, 210);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(40, 40);
             this.panel9.TabIndex = 23;
@@ -199,23 +186,6 @@
             this.lblHora.Text = "00:00";
             this.lblHora.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblHora.Click += new System.EventHandler(this.lblHora_Click);
-            // 
-            // btnCliente
-            // 
-            this.btnCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnCliente.BackgroundImage = global::patasepelos.Properties.Resources.Group_143725955;
-            this.btnCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCliente.FlatAppearance.BorderSize = 0;
-            this.btnCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCliente.Location = new System.Drawing.Point(532, 153);
-            this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(155, 155);
-            this.btnCliente.TabIndex = 12;
-            this.btnCliente.UseVisualStyleBackColor = false;
-            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // panel4
             // 
@@ -315,7 +285,7 @@
             this.btnProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.btnProduto.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnProduto.Location = new System.Drawing.Point(22, 153);
+            this.btnProduto.Location = new System.Drawing.Point(532, 153);
             this.btnProduto.Name = "btnProduto";
             this.btnProduto.Size = new System.Drawing.Size(155, 155);
             this.btnProduto.TabIndex = 8;
@@ -344,27 +314,6 @@
             this.btnServico.UseVisualStyleBackColor = false;
             this.btnServico.Click += new System.EventHandler(this.btnServico_Click);
             // 
-            // btnPet
-            // 
-            this.btnPet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnPet.BackgroundImage = global::patasepelos.Properties.Resources.Group_143725951__1_;
-            this.btnPet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPet.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.btnPet.FlatAppearance.BorderSize = 0;
-            this.btnPet.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnPet.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnPet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnPet.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPet.Location = new System.Drawing.Point(1042, 153);
-            this.btnPet.Name = "btnPet";
-            this.btnPet.Size = new System.Drawing.Size(155, 155);
-            this.btnPet.TabIndex = 4;
-            this.btnPet.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnPet.UseVisualStyleBackColor = false;
-            this.btnPet.Click += new System.EventHandler(this.btnPet_Click);
-            // 
             // btnFuncionario
             // 
             this.btnFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
@@ -378,7 +327,7 @@
             this.btnFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFuncionario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnFuncionario.Location = new System.Drawing.Point(276, 154);
+            this.btnFuncionario.Location = new System.Drawing.Point(276, 153);
             this.btnFuncionario.Name = "btnFuncionario";
             this.btnFuncionario.Size = new System.Drawing.Size(155, 155);
             this.btnFuncionario.TabIndex = 2;
@@ -473,6 +422,15 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(211, 210);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(40, 40);
+            this.panel1.TabIndex = 26;
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,12 +466,10 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnProduto;
         private System.Windows.Forms.Button btnServico;
-        private System.Windows.Forms.Button btnPet;
         private System.Windows.Forms.Button btnFuncionario;
         private System.Windows.Forms.Panel pnlTopo;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.PictureBox pctLogo;
-        private System.Windows.Forms.Button btnCliente;
         private System.Windows.Forms.Label lblCargo;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Panel panel3;
@@ -528,12 +484,12 @@
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

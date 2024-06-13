@@ -72,23 +72,12 @@ namespace patasepelos
             Hide();
         }
 
-        private void btnCliente_Click(object sender, EventArgs e)
-        {
-            new frmCliente().Show();
-            Hide();
-        }
-
         private void btnServico_Click(object sender, EventArgs e)
         {
             new frmServico().Show();
             Hide();
         }
 
-        private void btnPet_Click(object sender, EventArgs e)
-        {
-            new frmPet().Show();
-            Hide();
-        }
 
         private void lblHora_Click(object sender, EventArgs e)
         {

@@ -22,19 +22,25 @@ namespace patasepelos
         public static int tentativa;
         public static string usuario, especialidade, senha;
 
-        //Cliente
-        public static int idCliente;
-        public static string nomeCliente, enderecoCliente, telefoneCliente, emailCliente, senhaCliente, fotoCliente, statusCliente, altCliente, altFotoCliente;
-        public static DateTime datCadCliente;
-
         //Produto
-
         public static int idProduto;
-        public static string nomeProduto, valorProduto, qtdeProduto, barrasProduto, statusatFotoProduto, caminhoFotoProduto, fotoProduto, statusProduto, altFotoProduto;
+        public static double valorProduto, qtdeProduto;
+        public static string nomeProduto, statusatFotoProduto, barrasProduto,  caminhoFotoProduto, fotoProduto, statusProduto, altFotoProduto;
         public static DateTime dataValProduto;
+      
+
+        //Funcionario
+        public static int idFuncionario;
+        public static string nomeFuncionario, enderecoFuncionario, caminhoFotoFuncionario, emailFuncionario, senhaFuncionario, fotoFuncionario, altFuncionario, statusFuncionario, dataaltFuncionario, especialidadeFuncionario, altFotoFuncionario, descFuncionario;
+        public static DateTime dataFuncionario;
+        public static double telefoneFuncionario;
+
+        //Servico
+        public static int idServico;
+        public static string nomeServico, fotoServico, altServico, descricaoServico, statusServico, caminhoFotoServico, altFotoServico;
 
         //Marca
-        public static string codMarca;
+        public static int codMarca;
 
 
     }

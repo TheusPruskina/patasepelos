@@ -1,6 +1,6 @@
 ﻿namespace patasepelos
 {
-    partial class Form9
+    partial class frmFunc
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form9));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFunc));
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.lblDataVenc = new System.Windows.Forms.Label();
-            this.lblCodBarras = new System.Windows.Forms.Label();
-            this.lblValor = new System.Windows.Forms.Label();
-            this.lblQuantidade = new System.Windows.Forms.Label();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.lblDescricao = new System.Windows.Forms.Label();
+            this.lblEspecialidade = new System.Windows.Forms.Label();
+            this.txtEspecialidade = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.lblMarca = new System.Windows.Forms.Label();
-            this.lblNome = new System.Windows.Forms.Label();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
-            this.mtbCodBarras = new System.Windows.Forms.MaskedTextBox();
-            this.txtQuantidade = new System.Windows.Forms.TextBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.lblData = new System.Windows.Forms.Label();
+            this.lblTelefone = new System.Windows.Forms.Label();
+            this.lblEndereco = new System.Windows.Forms.Label();
+            this.lblSenha = new System.Windows.Forms.Label();
+            this.lblNome = new System.Windows.Forms.Label();
+            this.txtEndereco = new System.Windows.Forms.TextBox();
             this.mtbData = new System.Windows.Forms.MaskedTextBox();
-            this.cmbMarca = new System.Windows.Forms.ComboBox();
-            this.txtValor = new System.Windows.Forms.TextBox();
+            this.txtTelefone = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblFoto = new System.Windows.Forms.Label();
             this.btnAdicionar = new System.Windows.Forms.Button();
@@ -52,7 +56,7 @@
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctFoto)).BeginInit();
             this.pnlTopo.SuspendLayout();
@@ -62,19 +66,23 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.pnlMenu.Controls.Add(this.lblDataVenc);
-            this.pnlMenu.Controls.Add(this.lblCodBarras);
-            this.pnlMenu.Controls.Add(this.lblValor);
-            this.pnlMenu.Controls.Add(this.lblQuantidade);
+            this.pnlMenu.Controls.Add(this.txtDescricao);
+            this.pnlMenu.Controls.Add(this.lblDescricao);
+            this.pnlMenu.Controls.Add(this.lblEspecialidade);
+            this.pnlMenu.Controls.Add(this.txtEspecialidade);
             this.pnlMenu.Controls.Add(this.lblStatus);
-            this.pnlMenu.Controls.Add(this.lblMarca);
-            this.pnlMenu.Controls.Add(this.lblNome);
             this.pnlMenu.Controls.Add(this.cmbStatus);
-            this.pnlMenu.Controls.Add(this.mtbCodBarras);
-            this.pnlMenu.Controls.Add(this.txtQuantidade);
+            this.pnlMenu.Controls.Add(this.txtSenha);
+            this.pnlMenu.Controls.Add(this.lblEmail);
+            this.pnlMenu.Controls.Add(this.txtEmail);
+            this.pnlMenu.Controls.Add(this.lblData);
+            this.pnlMenu.Controls.Add(this.lblTelefone);
+            this.pnlMenu.Controls.Add(this.lblEndereco);
+            this.pnlMenu.Controls.Add(this.lblSenha);
+            this.pnlMenu.Controls.Add(this.lblNome);
+            this.pnlMenu.Controls.Add(this.txtEndereco);
             this.pnlMenu.Controls.Add(this.mtbData);
-            this.pnlMenu.Controls.Add(this.cmbMarca);
-            this.pnlMenu.Controls.Add(this.txtValor);
+            this.pnlMenu.Controls.Add(this.txtTelefone);
             this.pnlMenu.Controls.Add(this.txtNome);
             this.pnlMenu.Controls.Add(this.lblFoto);
             this.pnlMenu.Controls.Add(this.btnAdicionar);
@@ -82,7 +90,7 @@
             this.pnlMenu.Controls.Add(this.pnlTopo);
             this.pnlMenu.Controls.Add(this.btnCadastrar);
             this.pnlMenu.Controls.Add(this.btnLimpar);
-            this.pnlMenu.Controls.Add(this.button1);
+            this.pnlMenu.Controls.Add(this.btnSair);
             this.pnlMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.pnlMenu.Location = new System.Drawing.Point(12, 12);
@@ -90,82 +98,59 @@
             this.pnlMenu.Size = new System.Drawing.Size(1221, 655);
             this.pnlMenu.TabIndex = 6;
             // 
-            // lblDataVenc
+            // txtDescricao
             // 
-            this.lblDataVenc.AutoSize = true;
-            this.lblDataVenc.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataVenc.ForeColor = System.Drawing.Color.Black;
-            this.lblDataVenc.Location = new System.Drawing.Point(978, 453);
-            this.lblDataVenc.Name = "lblDataVenc";
-            this.lblDataVenc.Size = new System.Drawing.Size(194, 19);
-            this.lblDataVenc.TabIndex = 52;
-            this.lblDataVenc.Text = "DATA DE VENCIMENTO";
+            this.txtDescricao.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescricao.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescricao.Location = new System.Drawing.Point(82, 429);
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(794, 82);
+            this.txtDescricao.TabIndex = 61;
             // 
-            // lblCodBarras
+            // lblDescricao
             // 
-            this.lblCodBarras.AutoSize = true;
-            this.lblCodBarras.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodBarras.ForeColor = System.Drawing.Color.Black;
-            this.lblCodBarras.Location = new System.Drawing.Point(989, 521);
-            this.lblCodBarras.Name = "lblCodBarras";
-            this.lblCodBarras.Size = new System.Drawing.Size(172, 19);
-            this.lblCodBarras.TabIndex = 51;
-            this.lblCodBarras.Text = "CODIGO DE BARRAS";
+            this.lblDescricao.AutoSize = true;
+            this.lblDescricao.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescricao.ForeColor = System.Drawing.Color.Black;
+            this.lblDescricao.Location = new System.Drawing.Point(78, 407);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Size = new System.Drawing.Size(104, 19);
+            this.lblDescricao.TabIndex = 60;
+            this.lblDescricao.Text = "DESCRIÇÃO";
             // 
-            // lblValor
+            // lblEspecialidade
             // 
-            this.lblValor.AutoSize = true;
-            this.lblValor.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValor.ForeColor = System.Drawing.Color.Black;
-            this.lblValor.Location = new System.Drawing.Point(23, 389);
-            this.lblValor.Name = "lblValor";
-            this.lblValor.Size = new System.Drawing.Size(64, 19);
-            this.lblValor.TabIndex = 50;
-            this.lblValor.Text = "VALOR";
+            this.lblEspecialidade.AutoSize = true;
+            this.lblEspecialidade.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEspecialidade.ForeColor = System.Drawing.Color.Black;
+            this.lblEspecialidade.Location = new System.Drawing.Point(640, 254);
+            this.lblEspecialidade.Name = "lblEspecialidade";
+            this.lblEspecialidade.Size = new System.Drawing.Size(140, 19);
+            this.lblEspecialidade.TabIndex = 59;
+            this.lblEspecialidade.Text = "ESPECIALIDADE";
             // 
-            // lblQuantidade
+            // txtEspecialidade
             // 
-            this.lblQuantidade.AutoSize = true;
-            this.lblQuantidade.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantidade.ForeColor = System.Drawing.Color.Black;
-            this.lblQuantidade.Location = new System.Drawing.Point(303, 389);
-            this.lblQuantidade.Name = "lblQuantidade";
-            this.lblQuantidade.Size = new System.Drawing.Size(117, 19);
-            this.lblQuantidade.TabIndex = 49;
-            this.lblQuantidade.Text = "QUANTIDADE";
+            this.txtEspecialidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEspecialidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEspecialidade.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEspecialidade.Location = new System.Drawing.Point(644, 276);
+            this.txtEspecialidade.Name = "txtEspecialidade";
+            this.txtEspecialidade.Size = new System.Drawing.Size(232, 16);
+            this.txtEspecialidade.TabIndex = 58;
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.Color.Black;
-            this.lblStatus.Location = new System.Drawing.Point(580, 383);
+            this.lblStatus.Location = new System.Drawing.Point(640, 329);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(74, 19);
-            this.lblStatus.TabIndex = 48;
+            this.lblStatus.TabIndex = 57;
             this.lblStatus.Text = "STATUS";
-            // 
-            // lblMarca
-            // 
-            this.lblMarca.AutoSize = true;
-            this.lblMarca.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarca.ForeColor = System.Drawing.Color.Black;
-            this.lblMarca.Location = new System.Drawing.Point(580, 261);
-            this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(70, 19);
-            this.lblMarca.TabIndex = 47;
-            this.lblMarca.Text = "MARCA";
-            // 
-            // lblNome
-            // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.ForeColor = System.Drawing.Color.Black;
-            this.lblNome.Location = new System.Drawing.Point(23, 268);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(58, 19);
-            this.lblNome.TabIndex = 46;
-            this.lblNome.Text = "NOME";
             // 
             // cmbStatus
             // 
@@ -176,33 +161,107 @@
             this.cmbStatus.Items.AddRange(new object[] {
             "ATIVO",
             "INATIVO"});
-            this.cmbStatus.Location = new System.Drawing.Point(584, 410);
+            this.cmbStatus.Location = new System.Drawing.Point(644, 351);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(354, 23);
-            this.cmbStatus.TabIndex = 45;
+            this.cmbStatus.Size = new System.Drawing.Size(232, 23);
+            this.cmbStatus.TabIndex = 56;
             // 
-            // mtbCodBarras
+            // txtSenha
             // 
-            this.mtbCodBarras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
-            this.mtbCodBarras.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mtbCodBarras.Font = new System.Drawing.Font("Roboto Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbCodBarras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.mtbCodBarras.Location = new System.Drawing.Point(968, 543);
-            this.mtbCodBarras.Mask = "0 000000 000000";
-            this.mtbCodBarras.Name = "mtbCodBarras";
-            this.mtbCodBarras.Size = new System.Drawing.Size(214, 23);
-            this.mtbCodBarras.TabIndex = 6;
-            this.mtbCodBarras.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSenha.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Location = new System.Drawing.Point(644, 217);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(232, 16);
+            this.txtSenha.TabIndex = 55;
             // 
-            // txtQuantidade
+            // lblEmail
             // 
-            this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtQuantidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtQuantidade.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantidade.Location = new System.Drawing.Point(307, 417);
-            this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(232, 16);
-            this.txtQuantidade.TabIndex = 3;
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.ForeColor = System.Drawing.Color.Black;
+            this.lblEmail.Location = new System.Drawing.Point(358, 336);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(62, 19);
+            this.lblEmail.TabIndex = 54;
+            this.lblEmail.Text = "EMAIL";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEmail.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(362, 358);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(232, 16);
+            this.txtEmail.TabIndex = 53;
+            // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.ForeColor = System.Drawing.Color.Black;
+            this.lblData.Location = new System.Drawing.Point(985, 453);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(175, 19);
+            this.lblData.TabIndex = 52;
+            this.lblData.Text = "DATA DE CADASTRO";
+            // 
+            // lblTelefone
+            // 
+            this.lblTelefone.AutoSize = true;
+            this.lblTelefone.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefone.ForeColor = System.Drawing.Color.Black;
+            this.lblTelefone.Location = new System.Drawing.Point(78, 336);
+            this.lblTelefone.Name = "lblTelefone";
+            this.lblTelefone.Size = new System.Drawing.Size(94, 19);
+            this.lblTelefone.TabIndex = 50;
+            this.lblTelefone.Text = "TELEFONE";
+            // 
+            // lblEndereco
+            // 
+            this.lblEndereco.AutoSize = true;
+            this.lblEndereco.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEndereco.ForeColor = System.Drawing.Color.Black;
+            this.lblEndereco.Location = new System.Drawing.Point(78, 254);
+            this.lblEndereco.Name = "lblEndereco";
+            this.lblEndereco.Size = new System.Drawing.Size(96, 19);
+            this.lblEndereco.TabIndex = 49;
+            this.lblEndereco.Text = "ENDERECO";
+            // 
+            // lblSenha
+            // 
+            this.lblSenha.AutoSize = true;
+            this.lblSenha.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenha.ForeColor = System.Drawing.Color.Black;
+            this.lblSenha.Location = new System.Drawing.Point(640, 195);
+            this.lblSenha.Name = "lblSenha";
+            this.lblSenha.Size = new System.Drawing.Size(66, 19);
+            this.lblSenha.TabIndex = 48;
+            this.lblSenha.Text = "SENHA";
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.ForeColor = System.Drawing.Color.Black;
+            this.lblNome.Location = new System.Drawing.Point(78, 195);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(58, 19);
+            this.lblNome.TabIndex = 46;
+            this.lblNome.Text = "NOME";
+            // 
+            // txtEndereco
+            // 
+            this.txtEndereco.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEndereco.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEndereco.Location = new System.Drawing.Point(82, 276);
+            this.txtEndereco.Name = "txtEndereco";
+            this.txtEndereco.Size = new System.Drawing.Size(512, 16);
+            this.txtEndereco.TabIndex = 3;
             // 
             // mtbData
             // 
@@ -218,33 +277,22 @@
             this.mtbData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbData.ValidatingType = typeof(System.DateTime);
             // 
-            // cmbMarca
+            // txtTelefone
             // 
-            this.cmbMarca.DropDownWidth = 395;
-            this.cmbMarca.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.ItemHeight = 15;
-            this.cmbMarca.Location = new System.Drawing.Point(584, 283);
-            this.cmbMarca.Name = "cmbMarca";
-            this.cmbMarca.Size = new System.Drawing.Size(354, 23);
-            this.cmbMarca.TabIndex = 2;
-            // 
-            // txtValor
-            // 
-            this.txtValor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtValor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtValor.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.Location = new System.Drawing.Point(27, 417);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(232, 16);
-            this.txtValor.TabIndex = 2;
+            this.txtTelefone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTelefone.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTelefone.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefone.Location = new System.Drawing.Point(82, 358);
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(232, 16);
+            this.txtTelefone.TabIndex = 2;
             // 
             // txtNome
             // 
             this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(27, 290);
+            this.txtNome.Location = new System.Drawing.Point(82, 217);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(512, 16);
             this.txtNome.TabIndex = 1;
@@ -275,6 +323,7 @@
             this.btnAdicionar.Size = new System.Drawing.Size(50, 50);
             this.btnAdicionar.TabIndex = 4;
             this.btnAdicionar.UseVisualStyleBackColor = false;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // pctFoto
             // 
@@ -299,15 +348,14 @@
             // 
             // lblCadastro
             // 
-            this.lblCadastro.AutoSize = true;
             this.lblCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
             this.lblCadastro.Font = new System.Drawing.Font("Roboto Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCadastro.Location = new System.Drawing.Point(518, 23);
+            this.lblCadastro.Location = new System.Drawing.Point(479, 23);
             this.lblCadastro.Name = "lblCadastro";
-            this.lblCadastro.Size = new System.Drawing.Size(186, 38);
+            this.lblCadastro.Size = new System.Drawing.Size(265, 38);
             this.lblCadastro.TabIndex = 2;
             this.lblCadastro.Text = "CADASTRO";
-            this.lblCadastro.Click += new System.EventHandler(this.lblCadastro_Click);
+            this.lblCadastro.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pctLogo
             // 
@@ -329,12 +377,13 @@
             this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(584, 530);
+            this.btnCadastrar.Location = new System.Drawing.Point(584, 561);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(221, 41);
             this.btnCadastrar.TabIndex = 7;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnLimpar
             // 
@@ -345,42 +394,42 @@
             this.btnLimpar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(199, 530);
+            this.btnLimpar.Location = new System.Drawing.Point(199, 561);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(221, 41);
             this.btnLimpar.TabIndex = 30;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnSair
             // 
-            this.button1.BackgroundImage = global::patasepelos.Properties.Resources.x2;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1168, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 50);
-            this.button1.TabIndex = 26;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSair.BackgroundImage = global::patasepelos.Properties.Resources.x2;
+            this.btnSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSair.FlatAppearance.BorderSize = 0;
+            this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Location = new System.Drawing.Point(1168, 3);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(50, 50);
+            this.btnSair.TabIndex = 26;
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // Form9
+            // frmFunc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1245, 679);
             this.Controls.Add(this.pnlMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form9";
+            this.Name = "frmFunc";
             this.Text = "Form9";
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctFoto)).EndInit();
             this.pnlTopo.ResumeLayout(false);
-            this.pnlTopo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -389,19 +438,12 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlMenu;
-        private System.Windows.Forms.Label lblDataVenc;
-        private System.Windows.Forms.Label lblCodBarras;
-        private System.Windows.Forms.Label lblValor;
-        private System.Windows.Forms.Label lblQuantidade;
-        private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.Label lblTelefone;
+        private System.Windows.Forms.Label lblEndereco;
+        private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.ComboBox cmbStatus;
-        private System.Windows.Forms.MaskedTextBox mtbCodBarras;
-        private System.Windows.Forms.TextBox txtQuantidade;
-        private System.Windows.Forms.MaskedTextBox mtbData;
-        private System.Windows.Forms.ComboBox cmbMarca;
-        private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.TextBox txtEndereco;
+        private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblFoto;
         private System.Windows.Forms.Button btnAdicionar;
@@ -411,6 +453,17 @@
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.MaskedTextBox mtbData;
+        private System.Windows.Forms.Label lblEspecialidade;
+        private System.Windows.Forms.TextBox txtEspecialidade;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.Label lblDescricao;
     }
 }
