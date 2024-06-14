@@ -79,29 +79,31 @@ namespace patasepelos
             try
             {
                 banco.Conectar();
-                string selecionar = "Select * FROM tbl_produto WHERE idProduto = @codigo;";
+                string selecionar = "SELECT tbl_produto.nomeProduto, tbl_marca.nomeMarca, tbl_produto.valorProduto, tbl_produto.dataValProduto, tbl_produto.qtdeProduto, tbl_produto.barrasProduto, tbl_produto.statusProduto, tbl_produto.fotoProduto FROM tbl_produto  INNER JOIN tbl_marca ON tbl_produto.codMarca = tbl_marca.codMarca  WHERE tbl_produto.idProduto = @codigo;";
                 MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
                 cmd.Parameters.AddWithValue("@codigo", Variaveis.idProduto);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     Variaveis.nomeProduto = dr.GetString(0);
-                    Variaveis.codMarca = dr.GetInt32(1);
+                    Variaveis.nomeMarca = dr.GetString(1);
                     Variaveis.valorProduto = dr.GetDouble(2);
                     Variaveis.dataValProduto = dr.GetDateTime(3);
                     Variaveis.qtdeProduto = dr.GetDouble(4);
                     Variaveis.barrasProduto = dr.GetString(5);
                     Variaveis.statusProduto = dr.GetString(6);
+                    Variaveis.fotoProduto = dr.GetString(7);
                     Variaveis.fotoProduto = Variaveis.fotoProduto.Remove(0, 8);
 
                     txtNome.Text = Variaveis.nomeProduto;
-                    cmbMarca.Text = Variaveis.codMarca.ToString();
+                    cmbMarca.Text = Variaveis.nomeMarca;
                     txtValor.Text = Variaveis.valorProduto.ToString("N2");
                     mtbData.Text = Variaveis.dataValProduto.ToShortDateString();
                     txtQuantidade.Text = Variaveis.qtdeProduto.ToString();
                     mtbCodBarras.Text = Variaveis.barrasProduto.ToString();
                     cmbStatus.Text = Variaveis.statusProduto;
-                    pctFoto.Image = ByteToImage(GetImgToByte(Variaveis.enderecoServidorFtp + "imagem.jpg")); 
+
+                    pctFoto.Image = ByteToImage(GetImgToByte(Variaveis.enderecoServidorFtp + "img/produtos" + Variaveis.fotoProduto)); 
                     cmbStatus.Text = Variaveis.statusProduto;
                 }
                 banco.Desconectar();
@@ -114,7 +116,30 @@ namespace patasepelos
 
         private void AlterarProduto()
         {
-
+            try
+            {
+                banco.Conectar();
+                string alterar = "update tbl_produto set nomeproduto = @nome, codMarca = @marca, valorProduto = @valor, dataValProduto = @dataval, qtdeProduto = @qtde,barrasProduto = @barras, statusProduto = @status, fotoProduto = @foto WHERE tbl_produto.idProduto = @codigo;";
+                MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
+                cmd.Parameters.AddWithValue("@codigo", Variaveis.idProduto);
+                //parametros
+                cmd.Parameters.AddWithValue("@nome",          Variaveis.nomeProduto);
+                cmd.Parameters.AddWithValue("@marca",      Variaveis.codMarca);
+                cmd.Parameters.AddWithValue("@valor",      Variaveis.valorProduto);
+                cmd.Parameters.AddWithValue("@dataval",         Variaveis.dataValProduto);
+                cmd.Parameters.AddWithValue("@qtde",         Variaveis.qtdeProduto);
+                cmd.Parameters.AddWithValue("@barras",          Variaveis.barrasProduto);
+                cmd.Parameters.AddWithValue("@status",        Variaveis.statusProduto);
+                cmd.Parameters.AddWithValue("@foto",          Variaveis.fotoProduto);
+                //fim parametros
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Produto alterado com sucesso", "Alterar produto");
+                banco.Desconectar();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao alterar produto. \n\n" + erro);
+            }
         }
 
         private void AlterarFotoProduto()
@@ -134,7 +159,7 @@ namespace patasepelos
                 {
                     if (!string.IsNullOrEmpty(Variaveis.fotoProduto))
                     {
-                        string urlEnviarArquivo = Variaveis.enderecoServidorFtp + "img/produto/" + Path.GetFileName(Variaveis.fotoProduto);
+                        string urlEnviarArquivo = Variaveis.enderecoServidorFtp + "img/produtos/" + Path.GetFileName(Variaveis.fotoProduto);
                         try
                         {
                             Ftp.EnviarArquivoFtp(Variaveis.caminhoFotoProduto, urlEnviarArquivo, Variaveis.usuarioFtp, Variaveis.senhaFtp);
@@ -198,7 +223,7 @@ namespace patasepelos
                 {
                     if (!string.IsNullOrEmpty(Variaveis.fotoProduto))
                     {
-                        string urlEnviarArquivo = Variaveis.enderecoServidorFtp + "img/produto/" + Path.GetFileName(Variaveis.fotoProduto);
+                        string urlEnviarArquivo = Variaveis.enderecoServidorFtp + "img/produtos/" + Path.GetFileName(Variaveis.fotoProduto);
                         try
                         {
                             Ftp.EnviarArquivoFtp(Variaveis.caminhoFotoProduto, urlEnviarArquivo, Variaveis.usuarioFtp, Variaveis.senhaFtp);
@@ -435,12 +460,15 @@ namespace patasepelos
                 Variaveis.dataValProduto = Convert.ToDateTime(mtbData.Text);
                 Variaveis.qtdeProduto = double.Parse(txtValor.Text);
                 Variaveis.barrasProduto = mtbCodBarras.Text;
-                if (Variaveis.funcao == "CADASTRAR")
+                Variaveis.statusProduto = lblStatus.Text;
+
+
+                if (Variaveis.funcao == "Cadastrar")
                 {
                     InserirProduto();
                     btnLimpar.PerformClick();
                 }
-                else if (Variaveis.funcao == "ALTERAR")
+                else if (Variaveis.funcao == "Alterar")
                 {
                     AlterarProduto();
                     if (Variaveis.altFotoProduto == "S")
@@ -448,14 +476,17 @@ namespace patasepelos
                         AlterarFotoProduto();
                     }
                 }
-                MessageBox.Show("PRODUTO CADASTRADO COM SUCESSO");
-                Variaveis.funcao = "CADASTRAR";
                 new frmProduto().Show();
                 Hide();
             }
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

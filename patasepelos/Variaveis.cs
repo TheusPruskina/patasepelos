@@ -25,7 +25,7 @@ namespace patasepelos
         //Produto
         public static int idProduto;
         public static double valorProduto, qtdeProduto;
-        public static string nomeProduto, statusatFotoProduto, barrasProduto,  caminhoFotoProduto, fotoProduto, statusProduto, altFotoProduto;
+        public static string nomeProduto, nomeMarca, statusatFotoProduto, barrasProduto,  caminhoFotoProduto, fotoProduto, statusProduto, altFotoProduto;
         public static DateTime dataValProduto;
       
 

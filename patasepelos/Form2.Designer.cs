@@ -97,7 +97,7 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(1221, 655);
             this.pnlMenu.TabIndex = 2;
-            this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+
             // 
             // panel11
             // 
@@ -149,7 +149,7 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(221, 41);
             this.panel7.TabIndex = 21;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
+
             // 
             // btnAlterar
             // 
@@ -196,7 +196,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(449, 47);
             this.panel4.TabIndex = 16;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+
             // 
             // lblServico
             // 
@@ -228,7 +228,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(449, 47);
             this.panel3.TabIndex = 15;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+
             // 
             // lblProduto
             // 

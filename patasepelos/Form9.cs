@@ -75,8 +75,9 @@ namespace patasepelos
             try
             {
                 banco.Conectar();
-                string alterar = "update tbl_funcionario set nomeFuncionario = @nome, enderecoFuncionario = @endereco, telefoneFuncionario = @telefone, emailFuncionario = @email, senhaFuncionario = @senha, fotoFuncionario = @foto, statusFuncionario = @status, dataFuncionario = @data, especialidadeFuncionario = @especialidade, descFuncionario = descricao where idFuncionario = @idFuncionario;";
+                string alterar = "update tbl_funcionario set nomeFuncionario = @nome, enderecoFuncionario = @endereco, telefoneFuncionario = @telefone, emailFuncionario = @email, senhaFuncionario = @senha, fotoFuncionario = @foto, statusFuncionario = @status, dataFuncionario = @data, especialidadeFuncionario = @especialidade, descFuncionario = descricao where tbl_funcionario.idFuncionario = @codigo;";
                 MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
+                cmd.Parameters.AddWithValue("@codigo", Variaveis.idFuncionario);
                 //parametros
                 cmd.Parameters.AddWithValue("@nome", Variaveis.nomeFuncionario);
                 cmd.Parameters.AddWithValue("@endereco", Variaveis.enderecoFuncionario);
