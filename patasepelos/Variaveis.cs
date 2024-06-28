@@ -18,6 +18,11 @@ namespace patasepelos
         public static string funcao;
         public static int linhaSelecionada;
 
+        //Categoria
+        public static int idCategoria;
+        public static string nomeCategoria;
+
+
         //Menu
         public static int tentativa;
         public static string usuario, especialidade, senha;
@@ -25,7 +30,7 @@ namespace patasepelos
         //Produto
         public static int idProduto;
         public static double valorProduto, qtdeProduto;
-        public static string nomeProduto, nomeMarca, statusatFotoProduto, barrasProduto,  caminhoFotoProduto, fotoProduto, statusProduto, altFotoProduto;
+        public static string nomeProduto, nomeMarca,  statusatFotoProduto, barrasProduto,  caminhoFotoProduto, fotoProduto, statusProduto, altFotoProduto;
         public static DateTime dataValProduto;
       
 

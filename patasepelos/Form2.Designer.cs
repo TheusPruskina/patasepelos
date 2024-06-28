@@ -30,7 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -45,27 +50,26 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblProduto = new System.Windows.Forms.Label();
             this.txtProduto = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProduto = new System.Windows.Forms.DataGridView();
+            this.dgvServico = new System.Windows.Forms.DataGridView();
             this.btnProduto = new System.Windows.Forms.Button();
             this.btnServico = new System.Windows.Forms.Button();
             this.btnFuncionario = new System.Windows.Forms.Button();
             this.pnlTopo = new System.Windows.Forms.Panel();
             this.pctLogo = new System.Windows.Forms.PictureBox();
-            this.lblCargo = new System.Windows.Forms.Label();
+            this.lblEspecialidade = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.pnlData = new System.Windows.Forms.Panel();
             this.lblData = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             this.panel7.SuspendLayout();
             this.pnlHora.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).BeginInit();
             this.pnlTopo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.pnlData.SuspendLayout();
@@ -83,8 +87,8 @@
             this.pnlMenu.Controls.Add(this.pnlHora);
             this.pnlMenu.Controls.Add(this.panel4);
             this.pnlMenu.Controls.Add(this.panel3);
-            this.pnlMenu.Controls.Add(this.dataGridView2);
-            this.pnlMenu.Controls.Add(this.dataGridView1);
+            this.pnlMenu.Controls.Add(this.dgvProduto);
+            this.pnlMenu.Controls.Add(this.dgvServico);
             this.pnlMenu.Controls.Add(this.btnProduto);
             this.pnlMenu.Controls.Add(this.btnServico);
             this.pnlMenu.Controls.Add(this.btnFuncionario);
@@ -97,7 +101,15 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(1221, 655);
             this.pnlMenu.TabIndex = 2;
-
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(211, 210);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(40, 40);
+            this.panel1.TabIndex = 26;
             // 
             // panel11
             // 
@@ -119,7 +131,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExcluir.BackgroundImage")));
+            this.btnExcluir.BackgroundImage = global::patasepelos.Properties.Resources.alterarprodut;
             this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
@@ -149,11 +161,10 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(221, 41);
             this.panel7.TabIndex = 21;
-
             // 
             // btnAlterar
             // 
-            this.btnAlterar.BackgroundImage = global::patasepelos.Properties.Resources.alterar;
+            this.btnAlterar.BackgroundImage = global::patasepelos.Properties.Resources.alterarprodut;
             this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAlterar.FlatAppearance.BorderSize = 0;
             this.btnAlterar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
@@ -196,7 +207,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(449, 47);
             this.panel4.TabIndex = 16;
-
             // 
             // lblServico
             // 
@@ -218,6 +228,7 @@
             this.txtServico.Name = "txtServico";
             this.txtServico.Size = new System.Drawing.Size(327, 26);
             this.txtServico.TabIndex = 14;
+            this.txtServico.TextChanged += new System.EventHandler(this.txtServico_TextChanged);
             // 
             // panel3
             // 
@@ -228,7 +239,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(449, 47);
             this.panel3.TabIndex = 15;
-
             // 
             // lblProduto
             // 
@@ -250,26 +260,82 @@
             this.txtProduto.Name = "txtProduto";
             this.txtProduto.Size = new System.Drawing.Size(327, 26);
             this.txtProduto.TabIndex = 14;
+            this.txtProduto.TextChanged += new System.EventHandler(this.txtProduto_TextChanged);
             // 
-            // dataGridView2
+            // dgvProduto
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.Silver;
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(22, 374);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(449, 259);
-            this.dataGridView2.TabIndex = 13;
+            this.dgvProduto.AllowUserToAddRows = false;
+            this.dgvProduto.AllowUserToDeleteRows = false;
+            this.dgvProduto.AllowUserToResizeColumns = false;
+            this.dgvProduto.AllowUserToResizeRows = false;
+            this.dgvProduto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvProduto.BackgroundColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProduto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProduto.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvProduto.EnableHeadersVisualStyles = false;
+            this.dgvProduto.Location = new System.Drawing.Point(22, 374);
+            this.dgvProduto.MultiSelect = false;
+            this.dgvProduto.Name = "dgvProduto";
+            this.dgvProduto.ReadOnly = true;
+            this.dgvProduto.RowHeadersVisible = false;
+            this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProduto.Size = new System.Drawing.Size(449, 259);
+            this.dgvProduto.TabIndex = 13;
+            this.dgvProduto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduto_CellClick);
+            this.dgvProduto.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProduto_ColumnHeaderMouseClick);
             // 
-            // dataGridView1
+            // dgvServico
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Silver;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(752, 374);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(449, 259);
-            this.dataGridView1.TabIndex = 10;
+            this.dgvServico.AllowUserToAddRows = false;
+            this.dgvServico.AllowUserToDeleteRows = false;
+            this.dgvServico.AllowUserToResizeColumns = false;
+            this.dgvServico.AllowUserToResizeRows = false;
+            this.dgvServico.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvServico.BackgroundColor = System.Drawing.Color.Silver;
+            this.dgvServico.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvServico.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvServico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvServico.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvServico.EnableHeadersVisualStyles = false;
+            this.dgvServico.Location = new System.Drawing.Point(752, 374);
+            this.dgvServico.MultiSelect = false;
+            this.dgvServico.Name = "dgvServico";
+            this.dgvServico.ReadOnly = true;
+            this.dgvServico.RowHeadersVisible = false;
+            this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvServico.Size = new System.Drawing.Size(449, 259);
+            this.dgvServico.TabIndex = 10;
+            this.dgvServico.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServico_CellClick);
+            this.dgvServico.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvServico_ColumnHeaderMouseClick);
             // 
             // btnProduto
             // 
@@ -340,7 +406,7 @@
             this.pnlTopo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.pnlTopo.BackgroundImage = global::patasepelos.Properties.Resources.Rectangle_21971__1_;
             this.pnlTopo.Controls.Add(this.pctLogo);
-            this.pnlTopo.Controls.Add(this.lblCargo);
+            this.pnlTopo.Controls.Add(this.lblEspecialidade);
             this.pnlTopo.Controls.Add(this.lblUsuario);
             this.pnlTopo.Location = new System.Drawing.Point(22, 57);
             this.pnlTopo.Name = "pnlTopo";
@@ -358,16 +424,16 @@
             this.pctLogo.TabIndex = 1;
             this.pctLogo.TabStop = false;
             // 
-            // lblCargo
+            // lblEspecialidade
             // 
-            this.lblCargo.BackColor = System.Drawing.Color.Transparent;
-            this.lblCargo.Font = new System.Drawing.Font("Roboto Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCargo.Location = new System.Drawing.Point(1077, 43);
-            this.lblCargo.Name = "lblCargo";
-            this.lblCargo.Size = new System.Drawing.Size(79, 23);
-            this.lblCargo.TabIndex = 4;
-            this.lblCargo.Text = "Veterinária";
-            this.lblCargo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEspecialidade.BackColor = System.Drawing.Color.Transparent;
+            this.lblEspecialidade.Font = new System.Drawing.Font("Roboto Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEspecialidade.Location = new System.Drawing.Point(892, 43);
+            this.lblEspecialidade.Name = "lblEspecialidade";
+            this.lblEspecialidade.Size = new System.Drawing.Size(256, 23);
+            this.lblEspecialidade.TabIndex = 4;
+            this.lblEspecialidade.Text = "especialidade";
+            this.lblEspecialidade.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblUsuario
             // 
@@ -422,15 +488,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(211, 210);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(40, 40);
-            this.panel1.TabIndex = 26;
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,8 +508,8 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).EndInit();
             this.pnlTopo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.pnlData.ResumeLayout(false);
@@ -463,15 +520,15 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlMenu;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvServico;
         private System.Windows.Forms.Button btnProduto;
         private System.Windows.Forms.Button btnServico;
         private System.Windows.Forms.Button btnFuncionario;
         private System.Windows.Forms.Panel pnlTopo;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.PictureBox pctLogo;
-        private System.Windows.Forms.Label lblCargo;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label lblEspecialidade;
+        private System.Windows.Forms.DataGridView dgvProduto;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtProduto;
         private System.Windows.Forms.Label lblProduto;

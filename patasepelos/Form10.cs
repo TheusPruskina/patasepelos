@@ -49,7 +49,7 @@ namespace patasepelos
             }
             catch
             {
-                byte[] imageToByte = ftpServico.DownloadData("ftp://127.0.0.1/admin/img/Servicos/semimagem.png");
+                byte[] imageToByte = ftpServico.DownloadData("ftp://127.0.0.1/admin/img/servico/semimagem.png");
                 return imageToByte;
             }
         }
@@ -68,13 +68,47 @@ namespace patasepelos
 
         //INICIO DOS METODOSS
 
+        private void CarregarDadosServico()
+        {
+            try
+            {
+                banco.Conectar();
+                string selecionar = "select * from tbl_servico WHERE idServico = @codigo;";
+                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
+                cmd.Parameters.AddWithValue("@codigo", Variaveis.idServico);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    Variaveis.nomeServico = dr.GetString(1);
+                    Variaveis.fotoServico = dr.GetString(2);
+                    Variaveis.fotoServico = Variaveis.fotoServico.Remove(0, 8);
+                    Variaveis.descricaoServico = dr.GetString(4);
+                    Variaveis.statusServico = dr.GetString(5);
+
+
+                    txtNome.Text = Variaveis.nomeServico;
+                    pctFoto.Image = ByteToImage(GetImgToByte(Variaveis.enderecoServidorFtp + "img/servico/" + Variaveis.fotoServico));
+                    txtDescricao.Text = Variaveis.descricaoServico;
+                    cmbStatus.Text = Variaveis.statusServico;
+
+                }
+                banco.Desconectar();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao carregar os dados dos servicos. \n\n" + erro);
+            }
+        }
+
+
         private void AlterarServico()
         {
             try
             {
                 banco.Conectar();
-                string alterar = "update tbl_servico set nomeServico = @nome, fotoServico = @foto, descricaoServico = @descricao, statusServico = @status where idServico = @idServ;";
+                string alterar = "update tbl_servico set nomeServico = @nome, fotoServico = @foto, descricaoServico = @descricao, statusServico = @status where idServico = @codigo;";
                 MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
+                cmd.Parameters.AddWithValue("@codigo", Variaveis.idServico);
                 //parametros
                 cmd.Parameters.AddWithValue("@nome", Variaveis.nomeServico);
                 cmd.Parameters.AddWithValue("@foto", Variaveis.fotoServico);
@@ -97,7 +131,7 @@ namespace patasepelos
             try
             {
                 banco.Conectar();
-                string alterar = "update tbl_Servico set fotoServico = @foto where idServico = @codigo;";
+                string alterar = "update tbl_servico set fotoServico = @foto where idServico = @codigo;";
                 MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
                 //parametros
                 cmd.Parameters.AddWithValue("@foto", Variaveis.fotoServico);
@@ -124,7 +158,7 @@ namespace patasepelos
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro ao alterar FOTO Servico. \n\n" + erro);
+                MessageBox.Show("Erro ao alterar FOTO SERVICO. \n\n" + erro);
             }
         }
 
@@ -167,6 +201,7 @@ namespace patasepelos
         }
 
 
+
         //FIM DOS METODOSSSSS
 
 
@@ -207,7 +242,6 @@ namespace patasepelos
                 Variaveis.nomeServico = txtNome.Text;
                 Variaveis.descricaoServico = txtDescricao.Text;
                 Variaveis.statusServico = cmbStatus.Text;
-                Variaveis.fotoServico = pctFoto.Text;
 
                 if (Variaveis.funcao == "Cadastrar")
                 {
@@ -222,7 +256,6 @@ namespace patasepelos
                         AlterarFotoServico();
                     }
                 }
-                Variaveis.funcao = "Cadastrar";
                 new frmServico().Show();
                 Hide();
             }
@@ -252,7 +285,7 @@ namespace patasepelos
                     OpenFileDialog ofdFoto = new OpenFileDialog();
                     ofdFoto.Multiselect = false;
                     ofdFoto.FileName = "";
-                    ofdFoto.InitialDirectory = @"C:";
+                    ofdFoto.InitialDirectory = @"C:\xampp\htdocs\patasepelos\admin\img";
                     ofdFoto.Title = "SELECIONE UMA FOTO";
                     ofdFoto.Filter = "JPG ou PNG (*.jpg ou (*png|*.jpg;*.png";
                     ofdFoto.CheckFileExists = true;
@@ -287,6 +320,55 @@ namespace patasepelos
                 {
                     btnCadastrar.Focus();
                 }
+            }
+        }
+
+        private void frmCadServico_Load(object sender, EventArgs e)
+        {
+            if (Variaveis.funcao == "Cadastrar")
+            {
+                lblCadastro.Text = "Cadastrar";
+            }
+            else if (Variaveis.funcao == "Alterar")
+            {
+                lblCadastro.Text = "Alterar";
+                CarregarDadosServico();
+            }
+        }
+
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                cmbStatus.Focus();
+                cmbStatus.Enabled = true;
+            }
+        }
+
+        private void txtDescricao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+               btnAdicionar.Focus();
+               btnAdicionar.Enabled = true;
+            }
+        }
+
+        private void cmbStatus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtDescricao.Focus();
+                txtDescricao.Enabled = true;
+            }
+        }
+
+        private void btnAdicionar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnCadastrar.Focus();
+                btnCadastrar.Enabled = true;
             }
         }
     }

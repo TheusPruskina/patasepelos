@@ -70,12 +70,54 @@ namespace patasepelos
 
         //INICIO DOS METODOS
 
+        private void CarregarDadosFuncionario()
+        {
+            try
+            {
+                banco.Conectar();
+                string selecionar = "select * from tbl_funcionario WHERE idFuncionario = @codigo;";
+                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
+                cmd.Parameters.AddWithValue("@codigo", Variaveis.idFuncionario);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    Variaveis.nomeFuncionario = dr.GetString(1);
+                    Variaveis.enderecoFuncionario = dr.GetString(2);
+                    Variaveis.telefoneFuncionario = dr.GetDouble(3);
+                    Variaveis.emailFuncionario = dr.GetString(4);
+                    Variaveis.senhaFuncionario = dr.GetString(5);
+                    Variaveis.fotoFuncionario = dr.GetString(6);
+                    Variaveis.fotoFuncionario = Variaveis.fotoFuncionario.Remove(0, 12);
+                    Variaveis.statusFuncionario = dr.GetString(8);
+                    Variaveis.dataFuncionario = dr.GetDateTime(9);
+                    Variaveis.especialidadeFuncionario = dr.GetString(10);
+                    Variaveis.descFuncionario = dr.GetString(11);
+
+                    txtNome.Text = Variaveis.nomeFuncionario;
+                    txtEndereco.Text = Variaveis.enderecoFuncionario;
+                    txtTelefone.Text = Variaveis.telefoneFuncionario.ToString();
+                    txtEmail.Text = Variaveis.emailFuncionario;
+                    txtSenha.Text = Variaveis.senhaFuncionario;
+                    pctFoto.Image = ByteToImage(GetImgToByte(Variaveis.enderecoServidorFtp + "img/funcionario/" + Variaveis.fotoFuncionario));
+                    cmbStatus.Text = Variaveis.statusFuncionario;
+                    mtbData.Text = Variaveis.dataFuncionario.ToShortDateString();
+                    txtEspecialidade.Text = Variaveis.especialidadeFuncionario.ToString();
+                    txtDescricao.Text = Variaveis.descFuncionario;
+                }
+                banco.Desconectar();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao carregar os dados dos Funcionarios. \n\n" + erro);
+            }
+        }
+
         private void AlterarFuncionario()
         {
             try
             {
                 banco.Conectar();
-                string alterar = "update tbl_funcionario set nomeFuncionario = @nome, enderecoFuncionario = @endereco, telefoneFuncionario = @telefone, emailFuncionario = @email, senhaFuncionario = @senha, fotoFuncionario = @foto, statusFuncionario = @status, dataFuncionario = @data, especialidadeFuncionario = @especialidade, descFuncionario = descricao where tbl_funcionario.idFuncionario = @codigo;";
+                string alterar = "update tbl_funcionario set nomeFuncionario = @nome, enderecoFuncionario = @endereco, telefoneFuncionario = @telefone, emailFuncionario = @email, senhaFuncionario = @senha, fotoFuncionario = @foto, statusFuncionario = @status, dataFuncionario = @data, especialidadeFuncionario = @especialidade, descFuncionario = @descricao where tbl_funcionario.idFuncionario = @codigo;";
                 MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
                 cmd.Parameters.AddWithValue("@codigo", Variaveis.idFuncionario);
                 //parametros
@@ -89,7 +131,6 @@ namespace patasepelos
                 cmd.Parameters.AddWithValue("@data", Variaveis.dataFuncionario);
                 cmd.Parameters.AddWithValue("@especialidade", Variaveis.especialidadeFuncionario);
                 cmd.Parameters.AddWithValue("@descricao", Variaveis.descFuncionario);
-
 
                 //fim parametros
                 cmd.ExecuteNonQuery();
@@ -107,7 +148,7 @@ namespace patasepelos
             try
             {
                 banco.Conectar();
-                string alterar = "update tbl_funcionario set fotoFuncionario = @foto where idFuncionario = @funcionario;";
+                string alterar = "update tbl_funcionario set fotoFuncionario = @foto where idFuncionario = @codigo;";
                 MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
                 //parametros
                 cmd.Parameters.AddWithValue("@foto", Variaveis.fotoFuncionario);
@@ -142,7 +183,7 @@ namespace patasepelos
             try
             {
                 banco.Conectar();
-                string inserir = "insert into tbl_funcionario (nomeFuncionario, enderecoFuncionario, telefoneFuncionario, emailFuncionario, senhaFuncionario, fotoFuncionario, statusFuncionario, dataFuncionario, especialidadeFuncionario, descFuncionario ) values (@nome,@endereco,@telefone,@email,@senha,@foto, @status,@data,@especialidade,@descricao);";
+                string inserir = "insert into tbl_funcionario (nomeFuncionario, enderecoFuncionario, telefoneFuncionario, emailFuncionario, senhaFuncionario, fotoFuncionario, statusFuncionario, dataFuncionario, especialidadeFuncionario, descFuncionario ) values (@nome,@endereco,@telefone,@email,@senha,@foto,@status,@data,@especialidade,@descricao);";
                 MySqlCommand cmd = new MySqlCommand(inserir, banco.conexao);
                 //parametros
                 cmd.Parameters.AddWithValue("@nome", Variaveis.nomeFuncionario);
@@ -267,17 +308,17 @@ namespace patasepelos
                 Variaveis.telefoneFuncionario = double.Parse(txtTelefone.Text);
                 Variaveis.emailFuncionario = txtEmail.Text;
                 Variaveis.senhaFuncionario = txtSenha.Text;
-                Variaveis.fotoFuncionario = pctFoto.Text;
                 Variaveis.statusFuncionario = cmbStatus.Text;
                 Variaveis.dataFuncionario = Convert.ToDateTime(mtbData.Text);
                 Variaveis.especialidadeFuncionario = txtEspecialidade.Text;
                 Variaveis.descFuncionario = txtDescricao.Text;
-                if (Variaveis.funcao == "CADASTRAR")
+
+                if (Variaveis.funcao == "Cadastrar")
                 {
                     InserirFuncionario();
                     btnLimpar.PerformClick();
                 }
-                else if (Variaveis.funcao == "ALTERAR")
+                else if (Variaveis.funcao == "Alterar")
                 {
                     AlterarFuncionario();
                     if (Variaveis.altFotoFuncionario == "S")
@@ -285,7 +326,6 @@ namespace patasepelos
                         AlterarFotoFuncionario();
                     }
                 }
-                Variaveis.funcao = "CADASTRAR";
                 new frmFuncionario().Show();
                 Hide();
             }
@@ -299,7 +339,7 @@ namespace patasepelos
                     OpenFileDialog ofdFoto = new OpenFileDialog();
                     ofdFoto.Multiselect = false;
                     ofdFoto.FileName = "";
-                    ofdFoto.InitialDirectory = @"C:";
+                    ofdFoto.InitialDirectory = @"C:\xampp\htdocs\patasepelos\admin\img";
                     ofdFoto.Title = "SELECIONE UMA FOTO";
                     ofdFoto.Filter = "JPG ou PNG (*.jpg ou (*png|*.jpg;*.png";
                     ofdFoto.CheckFileExists = true;
@@ -308,14 +348,14 @@ namespace patasepelos
 
                     DialogResult result = ofdFoto.ShowDialog();
                     pctFoto.Image = Image.FromFile(ofdFoto.FileName);
-                    Variaveis.fotoFuncionario = "funcionario/" + Regex.Replace(txtNome.Text, @"\s", "").ToLower() + ".png";
+                    Variaveis.fotoServico = "funcionario/" + Regex.Replace(txtNome.Text, @"\s", "").ToLower() + ".png";
 
                     if (result == DialogResult.OK)
                     {
                         try
                         {
                             Variaveis.altFotoFuncionario = "S";
-                            Variaveis.caminhoFotoFuncionario = ofdFoto.FileName;
+                            Variaveis.caminhoFotoServico = ofdFoto.FileName;
 
                         }
                         catch (SecurityException erro)
@@ -334,6 +374,123 @@ namespace patasepelos
                 {
                     btnCadastrar.Focus();
                 }
+            }
+        }
+
+        private void frmFunc_Load(object sender, EventArgs e)
+        {
+            if (Variaveis.funcao == "Cadastrar")
+            {
+                lblCadastro.Text = "Cadastrar";
+            }
+            else if (Variaveis.funcao == "Alterar")
+            {
+                lblCadastro.Text = "Alterar";
+                CarregarDadosFuncionario();
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            cmbStatus.SelectedIndex = -1;
+            txtNome.Clear();
+            txtEndereco.Clear();
+            txtTelefone.Clear();
+            txtEmail.Clear();
+            txtSenha.Clear();
+            pctFoto.Image = null;
+            mtbData.Clear();
+            txtEspecialidade.Clear();
+            txtDescricao.Clear();
+        }
+
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtEndereco.Enabled = true;
+                txtEndereco.Focus();
+            }
+        }
+
+        private void txtEndereco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtTelefone.Focus();
+                txtTelefone.Enabled = true;
+            }
+        }
+
+        private void txtTelefone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtEmail.Focus();
+                txtEmail.Enabled = true;
+            }
+        }
+
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtDescricao.Focus();
+                txtDescricao.Enabled = true;
+            }
+        }
+
+        private void txtDescricao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtSenha.Focus();
+                txtSenha.Enabled = true;
+            }
+        }
+
+        private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtEspecialidade.Focus();
+                txtEspecialidade.Enabled = true;
+            }
+        }
+
+        private void txtEspecialidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+               cmbStatus.Focus();
+               cmbStatus.Enabled = true;
+            }
+        }
+
+        private void cmbStatus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnAdicionar.Focus();
+                btnAdicionar.Enabled = true;
+            }
+        }
+
+        private void btnAdicionar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                mtbData.Focus();
+                mtbData.Enabled = true;
+            }
+        }
+
+        private void mtbData_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnCadastrar.Focus();
+                btnCadastrar.Enabled = true;
             }
         }
     }

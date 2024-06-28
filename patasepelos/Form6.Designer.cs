@@ -192,20 +192,32 @@
             // 
             // dgvServico
             // 
+            this.dgvServico.AllowUserToAddRows = false;
+            this.dgvServico.AllowUserToDeleteRows = false;
+            this.dgvServico.AllowUserToResizeColumns = false;
+            this.dgvServico.AllowUserToResizeRows = false;
+            this.dgvServico.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvServico.BackgroundColor = System.Drawing.Color.White;
             this.dgvServico.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvServico.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvServico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServico.EnableHeadersVisualStyles = false;
             this.dgvServico.Location = new System.Drawing.Point(26, 178);
+            this.dgvServico.MultiSelect = false;
             this.dgvServico.Name = "dgvServico";
+            this.dgvServico.RowHeadersVisible = false;
+            this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServico.Size = new System.Drawing.Size(1179, 356);
             this.dgvServico.TabIndex = 27;
             this.dgvServico.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServico_CellClick);
+            this.dgvServico.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServico_CellContentClick);
             this.dgvServico.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvServico_ColumnHeaderMouseClick);
             // 
             // button1
             // 
             this.button1.BackgroundImage = global::patasepelos.Properties.Resources.x2;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));

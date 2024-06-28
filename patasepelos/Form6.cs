@@ -273,7 +273,7 @@ namespace patasepelos
             if (Variaveis.linhaSelecionada >= 0)
             {
                 Variaveis.funcao = "Alterar";
-                new frmServico().Show();
+                new frmCadServico().Show();
                 Hide();
             }
             else
@@ -284,10 +284,14 @@ namespace patasepelos
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            Variaveis.funcao = "CADASTRAR";
+            Variaveis.funcao = "Cadastrar";
             new frmCadServico().Show();
             Hide();
         }
-    
+
+        private void dgvServico_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

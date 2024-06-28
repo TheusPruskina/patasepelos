@@ -79,7 +79,7 @@ namespace patasepelos
             try
             {
                 banco.Conectar();
-                string selecionar = "SELECT tbl_produto.nomeProduto, tbl_marca.nomeMarca, tbl_produto.valorProduto, tbl_produto.dataValProduto, tbl_produto.qtdeProduto, tbl_produto.barrasProduto, tbl_produto.statusProduto, tbl_produto.fotoProduto FROM tbl_produto  INNER JOIN tbl_marca ON tbl_produto.codMarca = tbl_marca.codMarca  WHERE tbl_produto.idProduto = @codigo;";
+                string selecionar = "SELECT tbl_produto.nomeProduto, tbl_marca.nomeMarca, tbl_produto.valorProduto, tbl_produto.dataValProduto, tbl_produto.qtdeProduto, tbl_produto.barrasProduto, tbl_produto.statusProduto, tbl_produto.fotoProduto FROM tbl_produto INNER JOIN tbl_marca ON tbl_produto.codMarca = tbl_marca.codMarca, tbl_categoria.nomeCategoria WHERE tbl_produto.idProduto = @codigo;";
                 MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
                 cmd.Parameters.AddWithValue("@codigo", Variaveis.idProduto);
                 MySqlDataReader dr = cmd.ExecuteReader();
@@ -93,8 +93,8 @@ namespace patasepelos
                     Variaveis.barrasProduto = dr.GetString(5);
                     Variaveis.statusProduto = dr.GetString(6);
                     Variaveis.fotoProduto = dr.GetString(7);
-                    Variaveis.fotoProduto = Variaveis.fotoProduto.Remove(0, 8);
-
+                    Variaveis.nomeCategoria = dr.GetString(8);
+                    Variaveis.fotoProduto = Variaveis.fotoProduto.Remove(0, 9);
                     txtNome.Text = Variaveis.nomeProduto;
                     cmbMarca.Text = Variaveis.nomeMarca;
                     txtValor.Text = Variaveis.valorProduto.ToString("N2");
@@ -102,9 +102,8 @@ namespace patasepelos
                     txtQuantidade.Text = Variaveis.qtdeProduto.ToString();
                     mtbCodBarras.Text = Variaveis.barrasProduto.ToString();
                     cmbStatus.Text = Variaveis.statusProduto;
-
-                    pctFoto.Image = ByteToImage(GetImgToByte(Variaveis.enderecoServidorFtp + "img/produtos" + Variaveis.fotoProduto)); 
-                    cmbStatus.Text = Variaveis.statusProduto;
+                    cmbCategoria.Text = Variaveis.nomeCategoria;
+                    pctFoto.Image = ByteToImage(GetImgToByte(Variaveis.enderecoServidorFtp + "img/produtos/" + Variaveis.fotoProduto));
                 }
                 banco.Desconectar();
             }
@@ -119,7 +118,7 @@ namespace patasepelos
             try
             {
                 banco.Conectar();
-                string alterar = "update tbl_produto set nomeproduto = @nome, codMarca = @marca, valorProduto = @valor, dataValProduto = @dataval, qtdeProduto = @qtde,barrasProduto = @barras, statusProduto = @status, fotoProduto = @foto WHERE tbl_produto.idProduto = @codigo;";
+                string alterar = "update tbl_produto set nomeproduto = @nome, codMarca = @marca, valorProduto = @valor, dataValProduto = @dataval, qtdeProduto = @qtde,barrasProduto = @barras, statusProduto = @status, fotoProduto = @foto idCategoria = @categoria WHERE tbl_produto.idProduto = @codigo;";
                 MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
                 cmd.Parameters.AddWithValue("@codigo", Variaveis.idProduto);
                 //parametros
@@ -131,6 +130,7 @@ namespace patasepelos
                 cmd.Parameters.AddWithValue("@barras",          Variaveis.barrasProduto);
                 cmd.Parameters.AddWithValue("@status",        Variaveis.statusProduto);
                 cmd.Parameters.AddWithValue("@foto",          Variaveis.fotoProduto);
+                cmd.Parameters.AddWithValue("@categoria", Variaveis.idCategoria);
                 //fim parametros
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Produto alterado com sucesso", "Alterar produto");
@@ -199,12 +199,33 @@ namespace patasepelos
             }
         }
 
+        private void CarregarCmbCategoria()
+        {
+            try
+            {
+                banco.Conectar();
+                string selecionar = "SELECT idCategoria, nomeCategoria  FROM tbl_categoria ORDER BY nomeCategoria";
+                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cmbMarca.DataSource = dt;
+                cmbMarca.DisplayMember = "nomeCategoria";
+                cmbMarca.ValueMember = "idCategoria";
+                banco.Desconectar();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao carregar a lista de categoria. \n\n" + erro);
+            }
+        }
+
         private void InserirProduto()
         {
             try
             {
                 banco.Conectar();
-                string inserir = "insert into tbl_produto (nomeProduto, codMarca, valorProduto, dataValProduto, qtdeProduto, barrasProduto, statusProduto, fotoProduto) values (@nome,@marca,@valor,@dataval,@qtde,@barras,@status,@foto);";
+                string inserir = "insert into tbl_produto (nomeProduto, codMarca, valorProduto, dataValProduto, qtdeProduto, barrasProduto, statusProduto, fotoProduto, idCategoria) values (@nome,@marca,@valor,@dataval,@qtde,@barras,@status,@foto, @categoria);";
                 MySqlCommand cmd = new MySqlCommand(inserir, banco.conexao);
                 //parametros
                 cmd.Parameters.AddWithValue("@nome",     Variaveis.nomeProduto);
@@ -215,6 +236,7 @@ namespace patasepelos
                 cmd.Parameters.AddWithValue("@barras",     Variaveis.barrasProduto);
                 cmd.Parameters.AddWithValue("@status",      Variaveis.statusProduto);
                 cmd.Parameters.AddWithValue("@foto",   Variaveis.fotoProduto);
+                cmd.Parameters.AddWithValue("@categoria", Variaveis.idCategoria);
                 //fim parametros
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Produto cadastrado com sucesso", "CADASTRO DO PRODUTO");
@@ -283,6 +305,172 @@ namespace patasepelos
             txtNome.Focus();
         }
 
+
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtValor.Enabled = true;
+                txtValor.Focus();
+            }
+        }
+
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtQuantidade.Enabled = true;
+                txtQuantidade.Focus();
+            }
+        }
+
+        private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnAdicionar.Enabled = true;
+                btnAdicionar.Focus();
+            }
+        }
+
+        private void btnAdicionar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                mtbData.Enabled = true;
+                mtbData.Focus();
+            }
+        }
+
+        private void mtbData_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                mtbCodBarras.Enabled = true;
+                mtbCodBarras.Focus();
+            }
+        }
+
+        private void mtbCodBarras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnCadastrar.Enabled = true;
+                btnCadastrar.Focus();
+            }
+        }
+
+
+        private void frmProCadastro_Load(object sender, EventArgs e)
+        {
+            if (Variaveis.funcao == "Cadastrar")
+            {
+                lblCadastro.Text = "Cadastrar";
+            }
+            else if (Variaveis.funcao == "Alterar")
+            {
+                lblCadastro.Text = "Alterar";
+                CarregarDadosProduto();
+            }
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            lblNome.ForeColor = Color.FromArgb(255, 154, 91);
+            lblMarca.ForeColor = Color.FromArgb(255, 154, 91);
+            lblValor.ForeColor = Color.FromArgb(255, 154, 91);
+            lblDataVenc.ForeColor = Color.FromArgb(255, 154, 91);
+            lblQuantidade.ForeColor = Color.FromArgb(255, 154, 91);
+            lblCodBarras.ForeColor = Color.FromArgb(255, 154, 91);
+            lblStatus.ForeColor = Color.FromArgb(255, 154, 91);
+            lblFoto.ForeColor = Color.FromArgb(255, 154, 91);
+            lblCategoria.ForeColor = Color.FromArgb(255, 154, 91);
+
+
+            if (txtNome.Text == "")
+            {
+                MessageBox.Show("Preencher o nome do Produto");
+                lblNome.ForeColor = Color.FromArgb(163, 140, 214);
+                txtNome.Focus();
+            }
+            else if (cmbMarca.Text == "")
+            {
+                MessageBox.Show("Preencher o nome da Marca");
+                lblMarca.ForeColor = Color.FromArgb(163, 140, 214);
+                cmbMarca.Focus();
+            }
+            else if (txtValor.Text == "")
+            {
+                MessageBox.Show("Preencher o valor do Produto");
+                lblValor.ForeColor = Color.FromArgb(163, 140, 214);
+                txtValor.Focus();
+            }
+            else if (mtbData.Text == "")
+            {
+                MessageBox.Show("Preencher a senha do Serviço");
+                lblDataVenc.ForeColor = Color.FromArgb(163, 140, 214);
+                mtbData.Focus();
+            }
+            else if (txtQuantidade.Text == "")
+            {
+                MessageBox.Show("Preencher a quantidade do Produto");
+                lblQuantidade.ForeColor = Color.FromArgb(163, 140, 214);
+                txtQuantidade.Focus();
+            }
+            else if (mtbCodBarras.Text == "")
+            {
+                MessageBox.Show("Preencher o codigo de barras do Produto");
+                lblCodBarras.ForeColor = Color.FromArgb(163, 140, 214);
+                mtbCodBarras.Focus();
+            }
+            else if (cmbStatus.Text == "")
+            {
+                MessageBox.Show("Preencher o status do Produto");
+                lblStatus.ForeColor = Color.FromArgb(163, 140, 214);
+                cmbStatus.Focus();
+            }
+            else if (cmbCategoria.Text == "")
+            {
+                MessageBox.Show("Preencher o status da Categoria");
+                lblCategoria.ForeColor = Color.FromArgb(163, 140, 214);
+                cmbCategoria.Focus();
+            }
+            else
+            {
+                Variaveis.nomeProduto = txtNome.Text;
+                Variaveis.codMarca = Convert.ToInt32(cmbMarca.SelectedValue);
+                Variaveis.valorProduto = double.Parse(txtValor.Text);
+                Variaveis.dataValProduto = Convert.ToDateTime(mtbData.Text);
+                Variaveis.qtdeProduto = double.Parse(txtValor.Text);
+                Variaveis.barrasProduto = mtbCodBarras.Text;
+                Variaveis.statusProduto = lblStatus.Text;
+                Variaveis.idCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
+
+                if (Variaveis.funcao == "Cadastrar")
+                {
+                    InserirProduto();
+                    btnLimpar.PerformClick();
+                }
+                else if (Variaveis.funcao == "Alterar")
+                {
+                    AlterarProduto();
+                    if (Variaveis.altFotoProduto == "S")
+                    {
+                        AlterarFotoProduto();
+                    }
+                }
+                new frmProduto().Show();
+                Hide();
+            }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            new frmProduto().Show();
+            Close();
+        }
+
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             {
@@ -328,167 +516,11 @@ namespace patasepelos
             }
         }
 
-
-
-        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                txtValor.Enabled = true;
-                txtValor.Focus();
-            }
-        }
-
-
-        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                txtQuantidade.Enabled = true;
-                txtQuantidade.Focus();
-            }
-        }
-
-        private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                btnAdicionar.Enabled = true;
-                btnAdicionar.Focus();
-            }
-        }
-
-        private void btnAdicionar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                mtbData.Enabled = true;
-                mtbData.Focus();
-            }
-        }
-
-        private void mtbData_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                mtbData.Enabled = true;
-                mtbData.Focus();
-            }
-        }
-
-        private void mtbCodBarras_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                btnCadastrar.Enabled = true;
-                btnCadastrar.Focus();
-            }
-        }
-
-        private void frmProCadastro_Load(object sender, EventArgs e)
-        {
-            if (Variaveis.funcao == "Cadastrar")
-            {
-                lblCadastro.Text = "Cadastrar";
-            }
-            else if (Variaveis.funcao == "Alterar")
-            {
-                lblCadastro.Text = "Alterar";
-                CarregarDadosProduto();
-            }
-        }
-
-        private void btnCadastrar_Click(object sender, EventArgs e)
-        {
-            lblNome.ForeColor = Color.FromArgb(255, 154, 91);
-            lblMarca.ForeColor = Color.FromArgb(255, 154, 91);
-            lblValor.ForeColor = Color.FromArgb(255, 154, 91);
-            lblDataVenc.ForeColor = Color.FromArgb(255, 154, 91);
-            lblQuantidade.ForeColor = Color.FromArgb(255, 154, 91);
-            lblCodBarras.ForeColor = Color.FromArgb(255, 154, 91);
-            lblStatus.ForeColor = Color.FromArgb(255, 154, 91);
-            lblFoto.ForeColor = Color.FromArgb(255, 154, 91);
-
-
-            if (txtNome.Text == "")
-            {
-                MessageBox.Show("Preencher o nome do Produto");
-                lblNome.ForeColor = Color.FromArgb(163, 140, 214);
-                txtNome.Focus();
-            }
-            else if (cmbMarca.Text == "")
-            {
-                MessageBox.Show("Preencher o nome da Marca");
-                lblMarca.ForeColor = Color.FromArgb(163, 140, 214);
-                cmbMarca.Focus();
-            }
-            else if (txtValor.Text == "")
-            {
-                MessageBox.Show("Preencher o valor do Produto");
-                lblValor.ForeColor = Color.FromArgb(163, 140, 214);
-                txtValor.Focus();
-            }
-            else if (mtbData.Text == "")
-            {
-                MessageBox.Show("Preencher a senha do Serviço");
-                lblDataVenc.ForeColor = Color.FromArgb(163, 140, 214);
-                mtbData.Focus();
-            }
-            else if (txtQuantidade.Text == "")
-            {
-                MessageBox.Show("Preencher a quantidade do Produto");
-                lblQuantidade.ForeColor = Color.FromArgb(163, 140, 214);
-                txtQuantidade.Focus();
-            }
-            else if (mtbCodBarras.Text == "")
-            {
-                MessageBox.Show("Preencher o codigo de barras do Produto");
-                lblCodBarras.ForeColor = Color.FromArgb(163, 140, 214);
-                mtbCodBarras.Focus();
-            }
-            else if (cmbStatus.Text == "")
-            {
-                MessageBox.Show("Preencher o status do Produto");
-                lblStatus.ForeColor = Color.FromArgb(163, 140, 214);
-                cmbStatus.Focus();
-            }
-            else
-            {
-                Variaveis.nomeProduto = txtNome.Text;
-                Variaveis.codMarca = Convert.ToInt32(cmbMarca.SelectedValue);
-                Variaveis.valorProduto = double.Parse(txtValor.Text);
-                Variaveis.dataValProduto = Convert.ToDateTime(mtbData.Text);
-                Variaveis.qtdeProduto = double.Parse(txtValor.Text);
-                Variaveis.barrasProduto = mtbCodBarras.Text;
-                Variaveis.statusProduto = lblStatus.Text;
-
-
-                if (Variaveis.funcao == "Cadastrar")
-                {
-                    InserirProduto();
-                    btnLimpar.PerformClick();
-                }
-                else if (Variaveis.funcao == "Alterar")
-                {
-                    AlterarProduto();
-                    if (Variaveis.altFotoProduto == "S")
-                    {
-                        AlterarFotoProduto();
-                    }
-                }
-                new frmProduto().Show();
-                Hide();
-            }
-        }
-
-        private void btnFechar_Click(object sender, EventArgs e)
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 }

@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProCadastro));
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.btnAdicionar = new System.Windows.Forms.Button();
             this.lblDataVenc = new System.Windows.Forms.Label();
             this.lblCodBarras = new System.Windows.Forms.Label();
             this.lblValor = new System.Windows.Forms.Label();
@@ -45,23 +48,25 @@
             this.txtValor = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblFoto = new System.Windows.Forms.Label();
-            this.btnAdicionar = new System.Windows.Forms.Button();
-            this.pctFoto = new System.Windows.Forms.PictureBox();
             this.pnlTopo = new System.Windows.Forms.Panel();
             this.lblCadastro = new System.Windows.Forms.Label();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.pctFoto = new System.Windows.Forms.PictureBox();
             this.pnlMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctFoto)).BeginInit();
             this.pnlTopo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            this.pnlMenu.Controls.Add(this.lblCategoria);
+            this.pnlMenu.Controls.Add(this.cmbCategoria);
+            this.pnlMenu.Controls.Add(this.btnAdicionar);
             this.pnlMenu.Controls.Add(this.lblDataVenc);
             this.pnlMenu.Controls.Add(this.lblCodBarras);
             this.pnlMenu.Controls.Add(this.lblValor);
@@ -77,12 +82,11 @@
             this.pnlMenu.Controls.Add(this.txtValor);
             this.pnlMenu.Controls.Add(this.txtNome);
             this.pnlMenu.Controls.Add(this.lblFoto);
-            this.pnlMenu.Controls.Add(this.btnAdicionar);
-            this.pnlMenu.Controls.Add(this.pctFoto);
             this.pnlMenu.Controls.Add(this.pnlTopo);
             this.pnlMenu.Controls.Add(this.btnCadastrar);
             this.pnlMenu.Controls.Add(this.btnLimpar);
             this.pnlMenu.Controls.Add(this.btnFechar);
+            this.pnlMenu.Controls.Add(this.pctFoto);
             this.pnlMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.pnlMenu.Location = new System.Drawing.Point(12, 12);
@@ -90,12 +94,53 @@
             this.pnlMenu.Size = new System.Drawing.Size(1221, 655);
             this.pnlMenu.TabIndex = 5;
             // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.ForeColor = System.Drawing.Color.Black;
+            this.lblCategoria.Location = new System.Drawing.Point(1005, 573);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(144, 19);
+            this.lblCategoria.TabIndex = 67;
+            this.lblCategoria.Text = "Categoria do pet";
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbCategoria.DropDownWidth = 395;
+            this.cmbCategoria.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.ItemHeight = 15;
+            this.cmbCategoria.Location = new System.Drawing.Point(970, 595);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(214, 23);
+            this.cmbCategoria.TabIndex = 66;
+            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
+            // 
+            // btnAdicionar
+            // 
+            this.btnAdicionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
+            this.btnAdicionar.BackgroundImage = global::patasepelos.Properties.Resources._;
+            this.btnAdicionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAdicionar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdicionar.FlatAppearance.BorderSize = 0;
+            this.btnAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
+            this.btnAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
+            this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionar.Location = new System.Drawing.Point(1124, 368);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(50, 50);
+            this.btnAdicionar.TabIndex = 54;
+            this.btnAdicionar.UseVisualStyleBackColor = false;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            // 
             // lblDataVenc
             // 
             this.lblDataVenc.AutoSize = true;
             this.lblDataVenc.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataVenc.ForeColor = System.Drawing.Color.Black;
-            this.lblDataVenc.Location = new System.Drawing.Point(978, 453);
+            this.lblDataVenc.Location = new System.Drawing.Point(980, 440);
             this.lblDataVenc.Name = "lblDataVenc";
             this.lblDataVenc.Size = new System.Drawing.Size(194, 19);
             this.lblDataVenc.TabIndex = 52;
@@ -106,7 +151,7 @@
             this.lblCodBarras.AutoSize = true;
             this.lblCodBarras.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodBarras.ForeColor = System.Drawing.Color.Black;
-            this.lblCodBarras.Location = new System.Drawing.Point(989, 521);
+            this.lblCodBarras.Location = new System.Drawing.Point(991, 508);
             this.lblCodBarras.Name = "lblCodBarras";
             this.lblCodBarras.Size = new System.Drawing.Size(172, 19);
             this.lblCodBarras.TabIndex = 51;
@@ -169,6 +214,7 @@
             // 
             // cmbStatus
             // 
+            this.cmbStatus.BackColor = System.Drawing.SystemColors.Window;
             this.cmbStatus.DropDownWidth = 395;
             this.cmbStatus.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbStatus.FormattingEnabled = true;
@@ -187,7 +233,7 @@
             this.mtbCodBarras.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mtbCodBarras.Font = new System.Drawing.Font("Roboto Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtbCodBarras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.mtbCodBarras.Location = new System.Drawing.Point(968, 543);
+            this.mtbCodBarras.Location = new System.Drawing.Point(970, 530);
             this.mtbCodBarras.Mask = "0 000000 000000";
             this.mtbCodBarras.Name = "mtbCodBarras";
             this.mtbCodBarras.Size = new System.Drawing.Size(214, 23);
@@ -212,7 +258,7 @@
             this.mtbData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mtbData.Font = new System.Drawing.Font("Roboto Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtbData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.mtbData.Location = new System.Drawing.Point(1001, 475);
+            this.mtbData.Location = new System.Drawing.Point(1003, 462);
             this.mtbData.Mask = "00/00/0000";
             this.mtbData.Name = "mtbData";
             this.mtbData.Size = new System.Drawing.Size(149, 23);
@@ -223,6 +269,7 @@
             // 
             // cmbMarca
             // 
+            this.cmbMarca.BackColor = System.Drawing.SystemColors.Window;
             this.cmbMarca.DropDownWidth = 395;
             this.cmbMarca.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMarca.FormattingEnabled = true;
@@ -231,7 +278,6 @@
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(354, 23);
             this.cmbMarca.TabIndex = 4;
-            this.cmbMarca.SelectedIndexChanged += new System.EventHandler(this.cmbMarca_SelectedIndexChanged);
             // 
             // txtValor
             // 
@@ -259,40 +305,12 @@
             // 
             this.lblFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
             this.lblFoto.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFoto.Location = new System.Drawing.Point(975, 173);
+            this.lblFoto.Location = new System.Drawing.Point(981, 160);
             this.lblFoto.Name = "lblFoto";
-            this.lblFoto.Size = new System.Drawing.Size(200, 40);
+            this.lblFoto.Size = new System.Drawing.Size(196, 40);
             this.lblFoto.TabIndex = 36;
             this.lblFoto.Text = "FOTO";
             this.lblFoto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnAdicionar
-            // 
-            this.btnAdicionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
-            this.btnAdicionar.BackgroundImage = global::patasepelos.Properties.Resources._;
-            this.btnAdicionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAdicionar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdicionar.FlatAppearance.BorderSize = 0;
-            this.btnAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
-            this.btnAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
-            this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdicionar.Location = new System.Drawing.Point(1120, 383);
-            this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(50, 50);
-            this.btnAdicionar.TabIndex = 6;
-            this.btnAdicionar.UseVisualStyleBackColor = false;
-            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
-            this.btnAdicionar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnAdicionar_KeyPress);
-            // 
-            // pctFoto
-            // 
-            this.pctFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
-            this.pctFoto.Location = new System.Drawing.Point(975, 173);
-            this.pctFoto.Name = "pctFoto";
-            this.pctFoto.Size = new System.Drawing.Size(200, 264);
-            this.pctFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctFoto.TabIndex = 34;
-            this.pctFoto.TabStop = false;
             // 
             // pnlTopo
             // 
@@ -377,6 +395,17 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
+            // pctFoto
+            // 
+            this.pctFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
+            this.pctFoto.InitialImage = null;
+            this.pctFoto.Location = new System.Drawing.Point(981, 160);
+            this.pctFoto.Name = "pctFoto";
+            this.pctFoto.Size = new System.Drawing.Size(196, 260);
+            this.pctFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctFoto.TabIndex = 53;
+            this.pctFoto.TabStop = false;
+            // 
             // frmProCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,9 +419,9 @@
             this.Load += new System.EventHandler(this.frmProCadastro_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctFoto)).EndInit();
             this.pnlTopo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctFoto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -406,8 +435,6 @@
         private System.Windows.Forms.Panel pnlTopo;
         private System.Windows.Forms.Label lblCadastro;
         private System.Windows.Forms.PictureBox pctLogo;
-        private System.Windows.Forms.PictureBox pctFoto;
-        private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Label lblFoto;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtValor;
@@ -423,5 +450,9 @@
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblDataVenc;
         private System.Windows.Forms.Label lblCodBarras;
+        private System.Windows.Forms.PictureBox pctFoto;
+        private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.ComboBox cmbCategoria;
     }
 }

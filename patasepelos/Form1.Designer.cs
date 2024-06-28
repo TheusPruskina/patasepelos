@@ -38,7 +38,7 @@
             this.btnFuncionario = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lblLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtSenha = new System.Windows.Forms.TextBox();
@@ -76,7 +76,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1221, 655);
             this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnSair
             // 
@@ -216,28 +215,28 @@
             // 
             this.panel5.BackgroundImage = global::patasepelos.Properties.Resources.Rectangle_21901;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.lblLogin);
             this.panel5.Location = new System.Drawing.Point(176, 360);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(250, 34);
             this.panel5.TabIndex = 6;
             // 
-            // button1
+            // lblLogin
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, -8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(247, 42);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "ENTRAR";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.lblLogin.BackColor = System.Drawing.Color.Transparent;
+            this.lblLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblLogin.FlatAppearance.BorderSize = 0;
+            this.lblLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.lblLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.lblLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Location = new System.Drawing.Point(3, -8);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(247, 42);
+            this.lblLogin.TabIndex = 0;
+            this.lblLogin.Text = "ENTRAR";
+            this.lblLogin.UseVisualStyleBackColor = false;
+            this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
             // 
             // label1
             // 
@@ -376,7 +375,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button lblLogin;
         private System.Windows.Forms.Button btnSair;
     }
 }

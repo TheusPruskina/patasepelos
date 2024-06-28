@@ -41,7 +41,6 @@
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pnlMenu.SuspendLayout();
             this.pnlTopo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
@@ -51,7 +50,6 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.pnlMenu.Controls.Add(this.textBox1);
             this.pnlMenu.Controls.Add(this.btnCadastrar);
             this.pnlMenu.Controls.Add(this.btnExluir);
             this.pnlMenu.Controls.Add(this.btnAlterar);
@@ -195,11 +193,21 @@
             // 
             // dgvFuncionario
             // 
+            this.dgvFuncionario.AllowUserToAddRows = false;
+            this.dgvFuncionario.AllowUserToDeleteRows = false;
+            this.dgvFuncionario.AllowUserToResizeColumns = false;
+            this.dgvFuncionario.AllowUserToResizeRows = false;
+            this.dgvFuncionario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvFuncionario.BackgroundColor = System.Drawing.Color.White;
             this.dgvFuncionario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvFuncionario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFuncionario.EnableHeadersVisualStyles = false;
             this.dgvFuncionario.Location = new System.Drawing.Point(26, 178);
+            this.dgvFuncionario.MultiSelect = false;
             this.dgvFuncionario.Name = "dgvFuncionario";
+            this.dgvFuncionario.RowHeadersVisible = false;
+            this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFuncionario.Size = new System.Drawing.Size(1179, 356);
             this.dgvFuncionario.TabIndex = 27;
             this.dgvFuncionario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionario_CellClick);
@@ -209,6 +217,7 @@
             // 
             this.btnFechar.BackgroundImage = global::patasepelos.Properties.Resources.x2;
             this.btnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFechar.FlatAppearance.BorderSize = 0;
             this.btnFechar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.btnFechar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
@@ -219,14 +228,6 @@
             this.btnFechar.TabIndex = 26;
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(497, 282);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(288, 35);
-            this.textBox1.TabIndex = 33;
-            this.textBox1.Text = "TO ARRUMANDO ESSe";
             // 
             // frmFuncionario
             // 
@@ -242,7 +243,6 @@
             this.TransparencyKey = System.Drawing.SystemColors.HotTrack;
             this.Load += new System.EventHandler(this.frmFuncionario_Load);
             this.pnlMenu.ResumeLayout(false);
-            this.pnlMenu.PerformLayout();
             this.pnlTopo.ResumeLayout(false);
             this.pnlTopo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
@@ -265,6 +265,5 @@
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.DataGridView dgvFuncionario;
         private System.Windows.Forms.Button btnFechar;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

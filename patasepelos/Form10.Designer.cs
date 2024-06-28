@@ -120,6 +120,7 @@
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(354, 23);
             this.cmbStatus.TabIndex = 45;
+            this.cmbStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbStatus_KeyPress);
             // 
             // txtDescricao
             // 
@@ -131,6 +132,7 @@
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(911, 84);
             this.txtDescricao.TabIndex = 2;
+            this.txtDescricao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescricao_KeyPress);
             // 
             // txtNome
             // 
@@ -141,6 +143,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(512, 16);
             this.txtNome.TabIndex = 1;
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // lblFoto
             // 
@@ -169,6 +172,7 @@
             this.btnAdicionar.TabIndex = 4;
             this.btnAdicionar.UseVisualStyleBackColor = false;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            this.btnAdicionar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnAdicionar_KeyPress);
             // 
             // pctFoto
             // 
@@ -274,6 +278,7 @@
             this.Name = "frmCadServico";
             this.Text = "Form10";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Load += new System.EventHandler(this.frmCadServico_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctFoto)).EndInit();

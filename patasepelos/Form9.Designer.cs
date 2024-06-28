@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFunc));
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.lblDescricao = new System.Windows.Forms.Label();
             this.lblEspecialidade = new System.Windows.Forms.Label();
             this.txtEspecialidade = new System.Windows.Forms.TextBox();
@@ -57,6 +57,8 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctFoto)).BeginInit();
             this.pnlTopo.SuspendLayout();
@@ -98,17 +100,6 @@
             this.pnlMenu.Size = new System.Drawing.Size(1221, 655);
             this.pnlMenu.TabIndex = 6;
             // 
-            // txtDescricao
-            // 
-            this.txtDescricao.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescricao.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescricao.Location = new System.Drawing.Point(82, 429);
-            this.txtDescricao.Multiline = true;
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(794, 82);
-            this.txtDescricao.TabIndex = 61;
-            // 
             // lblDescricao
             // 
             this.lblDescricao.AutoSize = true;
@@ -140,6 +131,7 @@
             this.txtEspecialidade.Name = "txtEspecialidade";
             this.txtEspecialidade.Size = new System.Drawing.Size(232, 16);
             this.txtEspecialidade.TabIndex = 58;
+            this.txtEspecialidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEspecialidade_KeyPress);
             // 
             // lblStatus
             // 
@@ -165,6 +157,7 @@
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(232, 23);
             this.cmbStatus.TabIndex = 56;
+            this.cmbStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbStatus_KeyPress);
             // 
             // txtSenha
             // 
@@ -176,6 +169,7 @@
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(232, 16);
             this.txtSenha.TabIndex = 55;
+            this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenha_KeyPress);
             // 
             // lblEmail
             // 
@@ -197,6 +191,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(232, 16);
             this.txtEmail.TabIndex = 53;
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // lblData
             // 
@@ -262,6 +257,7 @@
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(512, 16);
             this.txtEndereco.TabIndex = 3;
+            this.txtEndereco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEndereco_KeyPress);
             // 
             // mtbData
             // 
@@ -276,6 +272,7 @@
             this.mtbData.TabIndex = 5;
             this.mtbData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbData.ValidatingType = typeof(System.DateTime);
+            this.mtbData.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbData_KeyPress);
             // 
             // txtTelefone
             // 
@@ -286,6 +283,7 @@
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(232, 16);
             this.txtTelefone.TabIndex = 2;
+            this.txtTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefone_KeyPress);
             // 
             // txtNome
             // 
@@ -296,6 +294,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(512, 16);
             this.txtNome.TabIndex = 1;
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // lblFoto
             // 
@@ -324,6 +323,7 @@
             this.btnAdicionar.TabIndex = 4;
             this.btnAdicionar.UseVisualStyleBackColor = false;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            this.btnAdicionar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnAdicionar_KeyPress);
             // 
             // pctFoto
             // 
@@ -400,6 +400,7 @@
             this.btnLimpar.TabIndex = 30;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSair
             // 
@@ -417,6 +418,23 @@
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // txtDescricao
+            // 
+            this.txtDescricao.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescricao.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescricao.Location = new System.Drawing.Point(82, 429);
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(794, 82);
+            this.txtDescricao.TabIndex = 61;
+            this.txtDescricao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescricao_KeyPress);
+            // 
             // frmFunc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,6 +444,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmFunc";
             this.Text = "Form9";
+            this.Load += new System.EventHandler(this.frmFunc_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctFoto)).EndInit();
@@ -463,7 +482,8 @@
         private System.Windows.Forms.TextBox txtEspecialidade;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.ComboBox cmbStatus;
-        private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label lblDescricao;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.TextBox txtDescricao;
     }
 }

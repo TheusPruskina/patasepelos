@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,18 +20,48 @@ namespace patasepelos
 
         //INICIO DOS METODOS
 
-
+        private void login()
+        {
+            try
+            {
+                banco.Conectar();
+                string selecionar = "select nomeFuncionario, emailFuncionario, senhaFuncionario, especialidadeFuncionario from tbl_funcionario where emailFuncionario = @email and senhaFuncionario = @senha and statusFuncionario = @status;";
+                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
+                cmd.Parameters.AddWithValue("@email", Variaveis.usuario);
+                cmd.Parameters.AddWithValue("@senha", Variaveis.senha);
+                cmd.Parameters.AddWithValue("@status", "ATIVO");
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    Variaveis.usuario = reader.GetString(0);
+                    Variaveis.especialidade = reader.GetString(3);
+                    new frmMenu().Show();
+                    Hide();
+                }
+                else
+                {
+                    Variaveis.tentativa = Variaveis.tentativa + 1;
+                    if (Variaveis.tentativa == 3)
+                    {
+                        Application.Exit();
+                    }
+                    else
+                    {
+                        MessageBox.Show("ACESSO NEGADO");
+                        txtEmail.Clear();
+                        txtSenha.Clear();
+                        txtEmail.Focus();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao efetuar o login");
+            }
+        }
 
         //FIM DOS METODOS
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Variaveis.usuario = txtEmail.Text;
-
-            new frmMenu().Show();
-            Hide();
-        }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
@@ -55,8 +86,21 @@ namespace patasepelos
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+
+        private void lblLogin_Click(object sender, EventArgs e)
         {
+            Variaveis.usuario = txtEmail.Text;
+            Variaveis.senha = txtSenha.Text;
+
+            if (Variaveis.usuario == "" && Variaveis.senha == "")
+            {
+                new frmMenu().Show();
+                Hide();
+            }
+            else
+            {
+                login();
+            }
 
         }
     }
