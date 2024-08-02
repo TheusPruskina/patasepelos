@@ -15,7 +15,11 @@ namespace patasepelos
         //public static string db = "SERVER=localhost;USER=root;DATABASE=dbautomestre";
 
         //para banco de dados online (servidor web)
-        public static string db = "SERVER=smpsistema.com.br;USER=u283879542_pethouse;PASSWORD=Senac@pethouse01;DATABASE=u283879542_pethouse;SSL MODE=None";
+        public static string db = "SERVER=smpsistema.com.br;" +
+            "USER=u283879542_pethouse;" +
+            "PASSWORD=Senac@pethouse01;" +
+            "DATABASE=u283879542_pethouse;" +
+            "SSL MODE=None";
 
         public static MySqlConnection conexao;
 

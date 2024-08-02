@@ -125,7 +125,6 @@
             // txtDescricao
             // 
             this.txtDescricao.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescricao.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.Location = new System.Drawing.Point(27, 375);
             this.txtDescricao.Multiline = true;
@@ -137,7 +136,6 @@
             // txtNome
             // 
             this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(27, 290);
             this.txtNome.Name = "txtNome";

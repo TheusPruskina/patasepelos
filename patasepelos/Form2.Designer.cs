@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnAlterar = new System.Windows.Forms.Button();
             this.pnlHora = new System.Windows.Forms.Panel();
             this.lblHora = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -64,7 +63,6 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlMenu.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.pnlHora.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -78,12 +76,11 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            this.pnlMenu.Controls.Add(this.panel2);
             this.pnlMenu.Controls.Add(this.panel1);
             this.pnlMenu.Controls.Add(this.panel11);
             this.pnlMenu.Controls.Add(this.panel8);
-            this.pnlMenu.Controls.Add(this.btnExcluir);
             this.pnlMenu.Controls.Add(this.panel9);
-            this.pnlMenu.Controls.Add(this.panel7);
             this.pnlMenu.Controls.Add(this.pnlHora);
             this.pnlMenu.Controls.Add(this.panel4);
             this.pnlMenu.Controls.Add(this.panel3);
@@ -101,6 +98,15 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(1221, 655);
             this.pnlMenu.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::patasepelos.Properties.Resources.Design_sem_nome__10_;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(514, 440);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(196, 193);
+            this.panel2.TabIndex = 27;
             // 
             // panel1
             // 
@@ -129,21 +135,6 @@
             this.panel8.Size = new System.Drawing.Size(40, 40);
             this.panel8.TabIndex = 25;
             // 
-            // btnExcluir
-            // 
-            this.btnExcluir.BackgroundImage = global::patasepelos.Properties.Resources.alterarprodut;
-            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExcluir.FlatAppearance.BorderSize = 0;
-            this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(501, 569);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(221, 41);
-            this.btnExcluir.TabIndex = 1;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            // 
             // panel9
             // 
             this.panel9.BackgroundImage = global::patasepelos.Properties.Resources.patinha;
@@ -152,30 +143,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(40, 40);
             this.panel9.TabIndex = 23;
-            // 
-            // panel7
-            // 
-            this.panel7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel7.BackgroundImage")));
-            this.panel7.Controls.Add(this.btnAlterar);
-            this.panel7.Location = new System.Drawing.Point(501, 512);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(221, 41);
-            this.panel7.TabIndex = 21;
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.BackgroundImage = global::patasepelos.Properties.Resources.alterarprodut;
-            this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAlterar.FlatAppearance.BorderSize = 0;
-            this.btnAlterar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnAlterar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlterar.Location = new System.Drawing.Point(0, 0);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(221, 41);
-            this.btnAlterar.TabIndex = 0;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
             // 
             // pnlHora
             // 
@@ -224,7 +191,7 @@
             this.txtServico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
             this.txtServico.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtServico.Font = new System.Drawing.Font("Roboto Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtServico.Location = new System.Drawing.Point(106, 12);
+            this.txtServico.Location = new System.Drawing.Point(107, 12);
             this.txtServico.Name = "txtServico";
             this.txtServico.Size = new System.Drawing.Size(327, 26);
             this.txtServico.TabIndex = 14;
@@ -235,7 +202,7 @@
             this.panel3.BackgroundImage = global::patasepelos.Properties.Resources.pesquisa;
             this.panel3.Controls.Add(this.lblProduto);
             this.panel3.Controls.Add(this.txtProduto);
-            this.panel3.Location = new System.Drawing.Point(22, 321);
+            this.panel3.Location = new System.Drawing.Point(12, 321);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(449, 47);
             this.panel3.TabIndex = 15;
@@ -256,7 +223,7 @@
             this.txtProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
             this.txtProduto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProduto.Font = new System.Drawing.Font("Roboto Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProduto.Location = new System.Drawing.Point(110, 12);
+            this.txtProduto.Location = new System.Drawing.Point(101, 12);
             this.txtProduto.Name = "txtProduto";
             this.txtProduto.Size = new System.Drawing.Size(327, 26);
             this.txtProduto.TabIndex = 14;
@@ -269,10 +236,12 @@
             this.dgvProduto.AllowUserToResizeColumns = false;
             this.dgvProduto.AllowUserToResizeRows = false;
             this.dgvProduto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvProduto.BackgroundColor = System.Drawing.Color.Silver;
+            this.dgvProduto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvProduto.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
+            this.dgvProduto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
@@ -281,14 +250,15 @@
             this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProduto.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProduto.EnableHeadersVisualStyles = false;
-            this.dgvProduto.Location = new System.Drawing.Point(22, 374);
+            this.dgvProduto.GridColor = System.Drawing.Color.White;
+            this.dgvProduto.Location = new System.Drawing.Point(11, 374);
             this.dgvProduto.MultiSelect = false;
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
@@ -297,6 +267,7 @@
             this.dgvProduto.Size = new System.Drawing.Size(449, 259);
             this.dgvProduto.TabIndex = 13;
             this.dgvProduto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduto_CellClick);
+            this.dgvProduto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduto_CellContentClick);
             this.dgvProduto.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProduto_ColumnHeaderMouseClick);
             // 
             // dgvServico
@@ -305,36 +276,44 @@
             this.dgvServico.AllowUserToDeleteRows = false;
             this.dgvServico.AllowUserToResizeColumns = false;
             this.dgvServico.AllowUserToResizeRows = false;
-            this.dgvServico.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvServico.BackgroundColor = System.Drawing.Color.Silver;
-            this.dgvServico.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvServico.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvServico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServico.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvServico.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvServico.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvServico.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
+            this.dgvServico.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvServico.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvServico.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvServico.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvServico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(140)))), ((int)(((byte)(214)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(154)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvServico.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvServico.EnableHeadersVisualStyles = false;
+            this.dgvServico.GridColor = System.Drawing.Color.White;
             this.dgvServico.Location = new System.Drawing.Point(752, 374);
             this.dgvServico.MultiSelect = false;
             this.dgvServico.Name = "dgvServico";
             this.dgvServico.ReadOnly = true;
+            this.dgvServico.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvServico.RowHeadersVisible = false;
+            this.dgvServico.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServico.Size = new System.Drawing.Size(449, 259);
             this.dgvServico.TabIndex = 10;
             this.dgvServico.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServico_CellClick);
+            this.dgvServico.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServico_CellContentClick);
             this.dgvServico.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvServico_ColumnHeaderMouseClick);
             // 
             // btnProduto
@@ -439,9 +418,9 @@
             // 
             this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuario.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(1003, 20);
+            this.lblUsuario.Location = new System.Drawing.Point(254, 20);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(151, 23);
+            this.lblUsuario.Size = new System.Drawing.Size(900, 23);
             this.lblUsuario.TabIndex = 2;
             this.lblUsuario.Text = "USUÁRIO";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -502,7 +481,6 @@
             this.TransparencyKey = System.Drawing.Color.OrangeRed;
             this.Load += new System.EventHandler(this.frmMenu_Load);
             this.pnlMenu.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             this.pnlHora.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -539,14 +517,12 @@
         private System.Windows.Forms.Panel pnlData;
         private System.Windows.Forms.Panel pnlHora;
         private System.Windows.Forms.Label lblHora;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

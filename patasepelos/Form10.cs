@@ -49,7 +49,7 @@ namespace patasepelos
             }
             catch
             {
-                byte[] imageToByte = ftpServico.DownloadData("ftp://127.0.0.1/admin/img/servico/semimagem.png");
+                byte[] imageToByte = ftpServico.DownloadData("ftp://u283879542.pethouse@smpsistema.com.br/john/Patas_e_pelos/admin/img/servico/semimagem.png");
                 return imageToByte;
             }
         }
@@ -81,7 +81,6 @@ namespace patasepelos
                 {
                     Variaveis.nomeServico = dr.GetString(1);
                     Variaveis.fotoServico = dr.GetString(2);
-                    Variaveis.fotoServico = Variaveis.fotoServico.Remove(0, 8);
                     Variaveis.descricaoServico = dr.GetString(4);
                     Variaveis.statusServico = dr.GetString(5);
 
@@ -106,12 +105,11 @@ namespace patasepelos
             try
             {
                 banco.Conectar();
-                string alterar = "update tbl_servico set nomeServico = @nome, fotoServico = @foto, descricaoServico = @descricao, statusServico = @status where idServico = @codigo;";
+                string alterar = "update tbl_servico set nomeServico = @nome, descricaoServico = @descricao, statusServico = @status where idServico = @codigo;";
                 MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
                 cmd.Parameters.AddWithValue("@codigo", Variaveis.idServico);
                 //parametros
                 cmd.Parameters.AddWithValue("@nome", Variaveis.nomeServico);
-                cmd.Parameters.AddWithValue("@foto", Variaveis.fotoServico);
                 cmd.Parameters.AddWithValue("@descricao", Variaveis.descricaoServico);
                 cmd.Parameters.AddWithValue("@status", Variaveis.statusServico);
 

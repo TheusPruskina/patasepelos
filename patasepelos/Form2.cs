@@ -43,7 +43,7 @@ namespace patasepelos
                 dgvServico.Columns[1].HeaderText = "NOME";
                 dgvServico.Columns[2].Visible = false;
                 dgvServico.Columns[3].Visible = false;
-                dgvServico.Columns[4].HeaderText = "DESCRICAO";
+                dgvServico.Columns[4].HeaderText = "DESCRIÇÃO";
                 dgvServico.Columns[5].HeaderText = "STATUS";
 
                 dgvProduto.ClearSelection();//nao ficar nada selecionado
@@ -64,18 +64,21 @@ namespace patasepelos
                 MySqlCommand cmdP = new MySqlCommand(selecionarP, banco.conexao);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmdP);//adaptar ao c#
                 DataTable dtP = new DataTable();//criando uma restrutura de tabela
+     
                 da.Fill(dtP);//preencher a tabela (dt)
 
                 dgvProduto.DataSource = dtP;//coloca a tabela na datagridview
                 dgvProduto.Columns[0].Visible = false;
                 dgvProduto.Columns[1].HeaderText = "NOME";
-                dgvProduto.Columns[2].HeaderText = "MARCA";
+                dgvProduto.Columns[2].Visible = false;
                 dgvProduto.Columns[3].HeaderText = "VALOR";
                 dgvProduto.Columns[4].Visible = false;
                 dgvProduto.Columns[5].Visible = false;
                 dgvProduto.Columns[6].Visible = false;
                 dgvProduto.Columns[7].HeaderText = "STATUS";
                 dgvProduto.Columns[8].Visible = false;
+                dgvProduto.Columns[9].Visible = false;
+
 
                 dgvProduto.ClearSelection();//nao ficar nada selecionado
                 banco.Desconectar();//fechar o banco de dados
@@ -91,7 +94,7 @@ namespace patasepelos
             try
             {
                 banco.Conectar(); //abrir o banco de dados
-                string selecionarP = "Select * from tbl_produto where nomeProduto LIKE '%" + txtProduto.Text + "%'order by nomeProduto;";
+                string selecionarP = "Select * from tbl_produto where  nomeProduto LIKE '%" + txtProduto.Text + "%' order by nomeProduto;";
                 MySqlCommand cmdP = new MySqlCommand(selecionarP, banco.conexao);
                 MySqlDataAdapter daP = new MySqlDataAdapter(cmdP);//adaptar ao c#
                 DataTable dtP = new DataTable();//criando uma restrutura de tabela
@@ -106,6 +109,8 @@ namespace patasepelos
                 dgvProduto.Columns[5].HeaderText = "QUANTIDADE";
                 dgvProduto.Columns[6].HeaderText = "CODIGO DE BARRAS";
                 dgvProduto.Columns[7].HeaderText = "STATUS";
+                dgvProduto.Columns[8].Visible = false;
+                dgvProduto.Columns[9].Visible = false;
                 dgvProduto.ClearSelection();//nao ficar nada selecionado
                 banco.Desconectar();//fechar o banco de dados
             }
@@ -222,7 +227,7 @@ namespace patasepelos
         {
             if (txtServico.Text == "")
             {
-                                                                                                                                                                                                    CarregarDgvServico();
+                CarregarDgvServico();
 
             }
             else
@@ -261,5 +266,14 @@ namespace patasepelos
             dgvServico.ClearSelection();
         }
 
+        private void dgvServico_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvProduto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

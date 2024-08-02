@@ -103,5 +103,22 @@ namespace patasepelos
             }
 
         }
+
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtSenha.Enabled = true;
+                txtSenha.Focus();
+            }
+        }
+
+        private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                lblLogin.Focus();
+            }
+        }
     }
 }

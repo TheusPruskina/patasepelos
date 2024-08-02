@@ -24,7 +24,7 @@ namespace patasepelos
             InitializeComponent();
             CarregarCmbMarca();
             CarregarCmbProduto();
-
+            CarregarCmbCategoria();
         }
 
         /*Validação ftp*/
@@ -54,7 +54,7 @@ namespace patasepelos
             }
             catch
             {
-                byte[] imageToByte = ftpProduto.DownloadData("ftp://127.0.0.1/admin/img/produtos/semimagem.png");
+                byte[] imageToByte = ftpProduto.DownloadData("ftp://u283879542.pethouse@smpsistema.com.br/john/Patas_e_pelos/admin/img/semImagem.png");
                 return imageToByte;
             }
         }
@@ -73,13 +73,13 @@ namespace patasepelos
 
         //INICIO DOS METODOSS
 
-
+        
         private void CarregarDadosProduto()
         {
             try
             {
                 banco.Conectar();
-                string selecionar = "SELECT tbl_produto.nomeProduto, tbl_marca.nomeMarca, tbl_produto.valorProduto, tbl_produto.dataValProduto, tbl_produto.qtdeProduto, tbl_produto.barrasProduto, tbl_produto.statusProduto, tbl_produto.fotoProduto FROM tbl_produto INNER JOIN tbl_marca ON tbl_produto.codMarca = tbl_marca.codMarca, tbl_categoria.nomeCategoria WHERE tbl_produto.idProduto = @codigo;";
+                string selecionar = "SELECT tbl_produto.nomeProduto, tbl_marca.nomeMarca, tbl_produto.valorProduto, tbl_produto.dataValProduto, tbl_produto.qtdeProduto, tbl_produto.barrasProduto, tbl_produto.statusProduto, tbl_produto.fotoProduto, tbl_categorias.nomeCategoria FROM tbl_produto INNER JOIN tbl_marca ON tbl_produto.codMarca = tbl_marca.codMarca INNER JOIN tbl_categorias ON tbl_produto.idCategoria = tbl_categorias.idCategoria WHERE tbl_produto.idProduto = @codigo;\r\n";
                 MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
                 cmd.Parameters.AddWithValue("@codigo", Variaveis.idProduto);
                 MySqlDataReader dr = cmd.ExecuteReader();
@@ -117,8 +117,8 @@ namespace patasepelos
         {
             try
             {
-                banco.Conectar();
-                string alterar = "update tbl_produto set nomeproduto = @nome, codMarca = @marca, valorProduto = @valor, dataValProduto = @dataval, qtdeProduto = @qtde,barrasProduto = @barras, statusProduto = @status, fotoProduto = @foto idCategoria = @categoria WHERE tbl_produto.idProduto = @codigo;";
+                banco.Conectar(); 
+                string alterar = "update tbl_produto set nomeproduto = @nome, codMarca = @marca, valorProduto = @valor, dataValProduto = @dataval, qtdeProduto = @qtde,barrasProduto = @barras, statusProduto = @status, idCategoria = @categoria WHERE tbl_produto.idProduto = @codigo;";
                 MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
                 cmd.Parameters.AddWithValue("@codigo", Variaveis.idProduto);
                 //parametros
@@ -129,7 +129,6 @@ namespace patasepelos
                 cmd.Parameters.AddWithValue("@qtde",         Variaveis.qtdeProduto);
                 cmd.Parameters.AddWithValue("@barras",          Variaveis.barrasProduto);
                 cmd.Parameters.AddWithValue("@status",        Variaveis.statusProduto);
-                cmd.Parameters.AddWithValue("@foto",          Variaveis.fotoProduto);
                 cmd.Parameters.AddWithValue("@categoria", Variaveis.idCategoria);
                 //fim parametros
                 cmd.ExecuteNonQuery();
@@ -199,27 +198,6 @@ namespace patasepelos
             }
         }
 
-        private void CarregarCmbCategoria()
-        {
-            try
-            {
-                banco.Conectar();
-                string selecionar = "SELECT idCategoria, nomeCategoria  FROM tbl_categoria ORDER BY nomeCategoria";
-                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                cmbMarca.DataSource = dt;
-                cmbMarca.DisplayMember = "nomeCategoria";
-                cmbMarca.ValueMember = "idCategoria";
-                banco.Desconectar();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro ao carregar a lista de categoria. \n\n" + erro);
-            }
-        }
-
         private void InserirProduto()
         {
             try
@@ -228,7 +206,7 @@ namespace patasepelos
                 string inserir = "insert into tbl_produto (nomeProduto, codMarca, valorProduto, dataValProduto, qtdeProduto, barrasProduto, statusProduto, fotoProduto, idCategoria) values (@nome,@marca,@valor,@dataval,@qtde,@barras,@status,@foto, @categoria);";
                 MySqlCommand cmd = new MySqlCommand(inserir, banco.conexao);
                 //parametros
-                cmd.Parameters.AddWithValue("@nome",     Variaveis.nomeProduto);
+                cmd.Parameters.AddWithValue("@nome",     Variaveis.nomeProduto);                
                 cmd.Parameters.AddWithValue("@marca", Variaveis.codMarca);
                 cmd.Parameters.AddWithValue("@valor", Variaveis.valorProduto);
                 cmd.Parameters.AddWithValue("@dataval",    Variaveis.dataValProduto);
@@ -286,6 +264,27 @@ namespace patasepelos
             }
         }
 
+        private void CarregarCmbCategoria()
+        {
+            try
+            {
+                banco.Conectar();
+                string selecionar = "SELECT idCategoria, nomeCategoria FROM tbl_categorias ORDER BY nomeCategoria";
+                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cmbCategoria.DataSource = dt;
+                cmbCategoria.DisplayMember = "nomeCategoria";
+                cmbCategoria.ValueMember = "idCategoria";
+
+                banco.Desconectar();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao carregar a lista de Categorias. \n\n" + erro);
+            }
+        }
 
 
         //FIM DOS METODOSSSSS
@@ -444,7 +443,7 @@ namespace patasepelos
                 Variaveis.dataValProduto = Convert.ToDateTime(mtbData.Text);
                 Variaveis.qtdeProduto = double.Parse(txtValor.Text);
                 Variaveis.barrasProduto = mtbCodBarras.Text;
-                Variaveis.statusProduto = lblStatus.Text;
+                Variaveis.statusProduto = cmbStatus.Text;
                 Variaveis.idCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
 
                 if (Variaveis.funcao == "Cadastrar")
@@ -521,6 +520,9 @@ namespace patasepelos
 
         }
 
+        private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -9,9 +9,9 @@ namespace patasepelos
     internal class Variaveis
     {
         //Estrutua de Fotos FTP
-        public static string enderecoServidorFtp = "ftp://127.0.0.1/admin/";
-        public static string usuarioFtp = "patasepelos";
-        public static string senhaFtp = "123456789";
+        public static string enderecoServidorFtp = "ftp://u283879542.pethouse@smpsistema.com.br/john/Patas_e_pelos/admin/";
+        public static string usuarioFtp = "u283879542.pethouse";
+        public static string senhaFtp = "Senac@pethouse01";
         //Fim Estruturra FTP
 
         //Geral

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,6 +79,8 @@ namespace patasepelos
                 dgvProduto.Columns[5].HeaderText = "QUANTIDADE";
                 dgvProduto.Columns[6].HeaderText = "CODIGO DE BARRAS";
                 dgvProduto.Columns[7].HeaderText = "STATUS";
+                dgvProduto.Columns[8].HeaderText = "FOTO";
+                dgvProduto.Columns[9].HeaderText = "CATEGORIA";
 
                 dgvProduto.ClearSelection();//nao ficar nada selecionado
                 banco.Desconectar();//fechar o banco de dados
@@ -128,6 +131,8 @@ namespace patasepelos
                 dgvProduto.Columns[5].HeaderText = "QUANTIDADE";
                 dgvProduto.Columns[6].HeaderText = "CODIGO DE BARRAS";
                 dgvProduto.Columns[7].HeaderText = "STATUS";
+                dgvProduto.Columns[8].Visible = false;
+                dgvProduto.Columns[9].HeaderText = "CATEGORIA";
 
 
                 dgvProduto.ClearSelection();//nao ficar nada selecionado
@@ -160,6 +165,8 @@ namespace patasepelos
                 dgvProduto.Columns[5].HeaderText = "QUANTIDADE";
                 dgvProduto.Columns[6].HeaderText = "CODIGO DE BARRAS";
                 dgvProduto.Columns[7].HeaderText = "STATUS";
+                dgvProduto.Columns[8].Visible = false;
+                dgvProduto.Columns[9].HeaderText = "CATEGORIA";
 
                 dgvProduto.ClearSelection();//nao ficar nada selecionado
                 banco.Desconectar();//fechar o banco de dados
@@ -170,6 +177,7 @@ namespace patasepelos
             }
         }
         //FIM DOS METODOS   
+
 
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -305,5 +313,7 @@ namespace patasepelos
             new frmMenu().Show();
             Close();
         }
+
+
     }
 }

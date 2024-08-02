@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSair = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -218,7 +219,7 @@
             this.panel5.Controls.Add(this.lblLogin);
             this.panel5.Location = new System.Drawing.Point(176, 360);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(250, 34);
+            this.panel5.Size = new System.Drawing.Size(250, 51);
             this.panel5.TabIndex = 6;
             // 
             // lblLogin
@@ -230,7 +231,7 @@
             this.lblLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.lblLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.Location = new System.Drawing.Point(3, -8);
+            this.lblLogin.Location = new System.Drawing.Point(0, 0);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(247, 42);
             this.lblLogin.TabIndex = 0;
@@ -263,10 +264,13 @@
             // 
             this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSenha.Location = new System.Drawing.Point(9, 6);
+            this.txtSenha.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Location = new System.Drawing.Point(9, 12);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(415, 28);
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(415, 16);
             this.txtSenha.TabIndex = 2;
+            this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenha_KeyPress);
             // 
             // label2
             // 
@@ -323,10 +327,12 @@
             // 
             this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(237)))));
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Location = new System.Drawing.Point(9, 6);
+            this.txtEmail.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(9, 12);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(415, 28);
+            this.txtEmail.Size = new System.Drawing.Size(415, 16);
             this.txtEmail.TabIndex = 2;
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // frmLogin
             // 
@@ -336,6 +342,7 @@
             this.ClientSize = new System.Drawing.Size(1245, 679);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

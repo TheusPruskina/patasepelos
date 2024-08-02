@@ -50,7 +50,7 @@ namespace patasepelos
             }
             catch
             {
-                byte[] imageToByte = ftpFuncionario.DownloadData("ftp://127.0.0.1/admin/img/funcionario/semimagem.png");
+                byte[] imageToByte = ftpFuncionario.DownloadData("ftp://u283879542.pethouse@smpsistema.com.br/john/Patas_e_pelos/admin/img/funcionario/semimagem.png");
                 return imageToByte;
             }
         }
@@ -87,7 +87,7 @@ namespace patasepelos
                     Variaveis.emailFuncionario = dr.GetString(4);
                     Variaveis.senhaFuncionario = dr.GetString(5);
                     Variaveis.fotoFuncionario = dr.GetString(6);
-                    Variaveis.fotoFuncionario = Variaveis.fotoFuncionario.Remove(0, 12);
+                    //Variaveis.fotoFuncionario = Variaveis.fotoFuncionario.Remove(0, 12);
                     Variaveis.statusFuncionario = dr.GetString(8);
                     Variaveis.dataFuncionario = dr.GetDateTime(9);
                     Variaveis.especialidadeFuncionario = dr.GetString(10);
@@ -117,7 +117,7 @@ namespace patasepelos
             try
             {
                 banco.Conectar();
-                string alterar = "update tbl_funcionario set nomeFuncionario = @nome, enderecoFuncionario = @endereco, telefoneFuncionario = @telefone, emailFuncionario = @email, senhaFuncionario = @senha, fotoFuncionario = @foto, statusFuncionario = @status, dataFuncionario = @data, especialidadeFuncionario = @especialidade, descFuncionario = @descricao where tbl_funcionario.idFuncionario = @codigo;";
+                string alterar = "update tbl_funcionario set nomeFuncionario = @nome, enderecoFuncionario = @endereco, telefoneFuncionario = @telefone, emailFuncionario = @email, senhaFuncionario = @senha, statusFuncionario = @status, dataFuncionario = @data, especialidadeFuncionario = @especialidade, descFuncionario = @descricao where tbl_funcionario.idFuncionario = @codigo;";
                 MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
                 cmd.Parameters.AddWithValue("@codigo", Variaveis.idFuncionario);
                 //parametros
@@ -126,7 +126,6 @@ namespace patasepelos
                 cmd.Parameters.AddWithValue("@telefone", Variaveis.telefoneFuncionario);
                 cmd.Parameters.AddWithValue("@email", Variaveis.emailFuncionario);
                 cmd.Parameters.AddWithValue("@senha", Variaveis.senhaFuncionario);
-                cmd.Parameters.AddWithValue("@foto", Variaveis.fotoFuncionario);
                 cmd.Parameters.AddWithValue("@status", Variaveis.statusFuncionario);
                 cmd.Parameters.AddWithValue("@data", Variaveis.dataFuncionario);
                 cmd.Parameters.AddWithValue("@especialidade", Variaveis.especialidadeFuncionario);
@@ -178,14 +177,29 @@ namespace patasepelos
                 MessageBox.Show("Erro ao alterar FOTO FUNCIONARIO. \n\n" + erro);
             }
         }
+
         private void InserirFuncionario()
         {
             try
             {
+                // Estabelece conexão com o banco de dados
                 banco.Conectar();
-                string inserir = "insert into tbl_funcionario (nomeFuncionario, enderecoFuncionario, telefoneFuncionario, emailFuncionario, senhaFuncionario, fotoFuncionario, statusFuncionario, dataFuncionario, especialidadeFuncionario, descFuncionario ) values (@nome,@endereco,@telefone,@email,@senha,@foto,@status,@data,@especialidade,@descricao);";
+
+                // Query SQL para inserção de funcionário
+                string inserir = "INSERT INTO tbl_funcionario " +
+                                 "(nomeFuncionario, enderecoFuncionario, telefoneFuncionario, " +
+                                 "emailFuncionario, senhaFuncionario, fotoFuncionario, " +
+                                 "statusFuncionario, dataFuncionario, especialidadeFuncionario, " +
+                                 "descFuncionario) " +
+                                 "VALUES (@nome, @endereco, @telefone, " +
+                                 "@email, @senha, @foto, " +
+                                 "@status, @data, @especialidade, " +
+                                 "@descricao);";
+
+                // Cria comando SQL
                 MySqlCommand cmd = new MySqlCommand(inserir, banco.conexao);
-                //parametros
+
+                // Define os parâmetros da query
                 cmd.Parameters.AddWithValue("@nome", Variaveis.nomeFuncionario);
                 cmd.Parameters.AddWithValue("@endereco", Variaveis.enderecoFuncionario);
                 cmd.Parameters.AddWithValue("@telefone", Variaveis.telefoneFuncionario);
@@ -196,30 +210,33 @@ namespace patasepelos
                 cmd.Parameters.AddWithValue("@data", Variaveis.dataFuncionario);
                 cmd.Parameters.AddWithValue("@especialidade", Variaveis.especialidadeFuncionario);
                 cmd.Parameters.AddWithValue("@descricao", Variaveis.descFuncionario);
-                //fim parametros
+
+                // Executa a query para inserir o funcionário
                 cmd.ExecuteNonQuery();
+
+                // Exibe mensagem de sucesso
                 MessageBox.Show("Funcionário cadastrado com sucesso", "CADASTRO DO FUNCIONÁRIO");
+
+                // Desconecta do banco de dados
                 banco.Desconectar();
 
-                if (ValidarFTP())
+                // Se houver validação FTP, envia a foto para o servidor FTP
+                if (ValidarFTP() && !string.IsNullOrEmpty(Variaveis.fotoFuncionario))
                 {
-                    if (!string.IsNullOrEmpty(Variaveis.fotoFuncionario))
+                    string urlEnviarArquivo = Variaveis.enderecoServidorFtp + "img/funcionario/" + Path.GetFileName(Variaveis.fotoFuncionario);
+                    try
                     {
-                        string urlEnviarArquivo = Variaveis.enderecoServidorFtp + "img/funcionario/" + Path.GetFileName(Variaveis.fotoFuncionario);
-                        try
-                        {
-                            Ftp.EnviarArquivoFtp(Variaveis.caminhoFotoFuncionario, urlEnviarArquivo, Variaveis.usuarioFtp, Variaveis.senhaFtp);
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Foto não foi selecionada ou existente no servidor.", "FOTO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        Ftp.EnviarArquivoFtp(Variaveis.caminhoFotoFuncionario, urlEnviarArquivo, Variaveis.usuarioFtp, Variaveis.senhaFtp);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Foto não foi selecionada ou existente no servidor.", "FOTO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro ao inserir Funcionario. \n\n" + erro);
+                MessageBox.Show("Erro ao inserir Funcionário. \n\n" + erro);
             }
         }
         //FIM DOS METODOS
@@ -304,7 +321,7 @@ namespace patasepelos
             else
             {
                 Variaveis.nomeFuncionario = txtNome.Text;
-                Variaveis.enderecoFuncionario = txtDescricao.Text;
+                Variaveis.enderecoFuncionario = txtEndereco.Text;
                 Variaveis.telefoneFuncionario = double.Parse(txtTelefone.Text);
                 Variaveis.emailFuncionario = txtEmail.Text;
                 Variaveis.senhaFuncionario = txtSenha.Text;
@@ -348,14 +365,14 @@ namespace patasepelos
 
                     DialogResult result = ofdFoto.ShowDialog();
                     pctFoto.Image = Image.FromFile(ofdFoto.FileName);
-                    Variaveis.fotoServico = "funcionario/" + Regex.Replace(txtNome.Text, @"\s", "").ToLower() + ".png";
+                    Variaveis.fotoFuncionario = "funcionario/" + Regex.Replace(txtNome.Text, @"\s", "").ToLower() + ".png";
 
                     if (result == DialogResult.OK)
                     {
                         try
                         {
                             Variaveis.altFotoFuncionario = "S";
-                            Variaveis.caminhoFotoServico = ofdFoto.FileName;
+                            Variaveis.caminhoFotoFuncionario = ofdFoto.FileName;
 
                         }
                         catch (SecurityException erro)

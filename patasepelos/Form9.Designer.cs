@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFunc));
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.lblDescricao = new System.Windows.Forms.Label();
             this.lblEspecialidade = new System.Windows.Forms.Label();
             this.txtEspecialidade = new System.Windows.Forms.TextBox();
@@ -58,7 +59,6 @@
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctFoto)).BeginInit();
             this.pnlTopo.SuspendLayout();
@@ -100,6 +100,17 @@
             this.pnlMenu.Size = new System.Drawing.Size(1221, 655);
             this.pnlMenu.TabIndex = 6;
             // 
+            // txtDescricao
+            // 
+            this.txtDescricao.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDescricao.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescricao.Location = new System.Drawing.Point(82, 429);
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(794, 82);
+            this.txtDescricao.TabIndex = 61;
+            this.txtDescricao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescricao_KeyPress);
+            // 
             // lblDescricao
             // 
             this.lblDescricao.AutoSize = true;
@@ -125,7 +136,6 @@
             // txtEspecialidade
             // 
             this.txtEspecialidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEspecialidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEspecialidade.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEspecialidade.Location = new System.Drawing.Point(644, 276);
             this.txtEspecialidade.Name = "txtEspecialidade";
@@ -162,7 +172,6 @@
             // txtSenha
             // 
             this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSenha.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.Location = new System.Drawing.Point(644, 217);
             this.txtSenha.Name = "txtSenha";
@@ -185,7 +194,6 @@
             // txtEmail
             // 
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEmail.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(362, 358);
             this.txtEmail.Name = "txtEmail";
@@ -251,7 +259,6 @@
             // txtEndereco
             // 
             this.txtEndereco.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEndereco.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEndereco.Location = new System.Drawing.Point(82, 276);
             this.txtEndereco.Name = "txtEndereco";
@@ -288,7 +295,6 @@
             // txtNome
             // 
             this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(82, 217);
             this.txtNome.Name = "txtNome";
@@ -422,18 +428,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // txtDescricao
-            // 
-            this.txtDescricao.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescricao.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescricao.Location = new System.Drawing.Point(82, 429);
-            this.txtDescricao.Multiline = true;
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(794, 82);
-            this.txtDescricao.TabIndex = 61;
-            this.txtDescricao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescricao_KeyPress);
             // 
             // frmFunc
             // 

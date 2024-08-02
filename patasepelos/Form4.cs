@@ -74,12 +74,12 @@ namespace patasepelos
                 dgvFuncionario.Columns[2].HeaderText = "ENDERECO";
                 dgvFuncionario.Columns[3].HeaderText = "TELEFONE";
                 dgvFuncionario.Columns[4].HeaderText = "EMAIL";
-                dgvFuncionario.Columns[5].HeaderText = "SENHA";
+                dgvFuncionario.Columns[5].Visible = false;
                 dgvFuncionario.Columns[6].HeaderText = "FOTO";
                 dgvFuncionario.Columns[7].Visible = false;
                 dgvFuncionario.Columns[8].HeaderText = "STATUS";
                 dgvFuncionario.Columns[9].Visible = false;
-                dgvFuncionario.Columns[10].HeaderText = "ESPECIALIDADE";
+                dgvFuncionario.Columns[10].Visible = false;
                 dgvFuncionario.Columns[11].Visible = false;
 
                 dgvFuncionario.ClearSelection();//nao ficar nada selecionado
@@ -128,7 +128,7 @@ namespace patasepelos
                 dgvFuncionario.Columns[2].HeaderText = "ENDERECO";
                 dgvFuncionario.Columns[3].HeaderText = "TELEFONE";
                 dgvFuncionario.Columns[4].HeaderText = "EMAIL";
-                dgvFuncionario.Columns[5].HeaderText = "SENHA";
+                dgvFuncionario.Columns[5].Visible = false;
                 dgvFuncionario.Columns[6].HeaderText = "FOTO";
                 dgvFuncionario.Columns[7].Visible = false;
                 dgvFuncionario.Columns[8].HeaderText = "STATUS";
